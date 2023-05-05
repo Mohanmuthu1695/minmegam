@@ -1,0 +1,202 @@
+.card-header {
+  background: #2c9ee2;
+  color: #fff;
+}
+.container {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.col-md-1 {
+  flex: 0 0 auto;
+  width: 5.333333%;
+}
+
+//header
+@media only screen and (min-width: 321px) and (max-width: 753px) {
+  .header {
+    .row {
+      h2 {
+        display: none;
+      }
+    }
+    div {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .form-control,
+    button {
+      margin-bottom: 4px;
+    }
+  }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 900px) {
+  #butgroup .col-md-9 {
+    width: 23rem;
+  }
+}
+//middle
+@media only screen and (min-width: 321px) and (max-width: 780px) {
+  // .body {
+  //   padding: 0;
+  //   margin: 0;
+  // }
+  // #middle {
+  //   .card-body {
+  //     div {
+  //       .row {
+  //         // display: flex;
+  //         // flex-direction: row;
+  //       }
+  //     }
+  //   }
+  // }
+  // #r {
+  //   display: flex;
+  // }
+  // #data {
+  //   .col-6 {
+  //     width: 6rem;
+  //   }
+  //   .col-5 {
+  //     width: 5rem;
+  //   }
+  //   .col-1 {
+  //     width: 1rem;
+  //   }
+  // }
+  #butgroup {
+    flex-direction: row;
+    // .col-md-9 {
+    //   width: 3.2rem;
+    //   margin-right: 5rem;
+    // }
+    .col-md-1 {
+      width: 2rem;
+      height: 2rem;
+      float: inline-end;
+    }
+  }
+  #but {
+    width: 2%;
+    height: 2%;
+    float: right;
+    margin-top: 1rem;
+    text-decoration: none;
+    border: none;
+  }
+  #but:hover {
+    color: rgb(0, 0, 0);
+    background-color: white;
+  }
+}
+// @media only screen and (min-width: 360px) and (max-width: 400px) {
+//   // #data {
+//   //   .col-1 {
+//   //     width: 2px;
+//   //   }
+//   // }
+
+//   // #middle {
+//   //   .card-body {
+//   //     div {
+//   //       .row {
+//   //         // display: flex;
+//   //         // flex-direction: row;
+//   //       }
+//   //     }
+//   //   }
+//   // }
+// }
+@media only screen and (min-width: 750px) and (max-width: 1240px) {
+  .header {
+    button {
+      white-space: nowrap;
+    }
+  }
+  .form-control,
+  button {
+    margin-bottom: 4px;
+  }
+}
+@media only screen and (min-width: 200px) and (max-width: 800px) {
+  .card-body {
+    font-size: 12px;
+  }
+  .col-6 {
+    flex: 0 0 auto;
+    width: 46%;
+  }
+  .col-5 {
+    flex: 0 0 auto;
+    width: 40.666667%;
+  }
+}
+@media (min-width: 992px) {
+  .col-lg-5 {
+    flex: 0 0 auto;
+    width: 39.633333%;
+  }
+
+  .col-lg-6 {
+    flex: 0 0 auto;
+    width: 51%;
+  }
+
+  // .col-lg-1 {
+  //   flex: 0 0 auto;
+  //   width: 0.5%;
+  // }
+  .row {
+    --bs-gutter-x: 0.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) / -2);
+    margin-left: calc(var(--bs-gutter-x) / -2);
+  }
+}
+//njhdoh
+@media only screen and (min-width: 800px) and (max-width: 1000px) {
+  .col-md-6 {
+    flex: 0 0 auto;
+    width: 43%;
+  }
+  #middle .card .row .row {
+  }
+  #butgroup {
+    flex-direction: row;
+    // .col-md-9 {
+    //   width: 3.2rem;
+    //   margin-right: 5rem;
+    // }
+    .col-md-1 {
+      width: 2rem;
+      height: 2rem;
+      float: inline-end;
+    }
+  }
+  #but {
+    width: 2%;
+    height: 2%;
+    float: right;
+    margin-top: 1rem;
+    text-decoration: none;
+    border: none;
+  }
+  #but:hover {
+    color: rgb(0, 0, 0);
+    background-color: white;
+  }
+  .row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) / -2);
+    margin-left: calc(var(--bs-gutter-x) / -2);
+  }
+}

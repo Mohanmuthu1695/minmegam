@@ -1,0 +1,423 @@
+// input[type="text"][disabled]{background-color:rgb(255, 255, 255);
+// font-weight: 600; border: none;width: 110px; color: #000;border-bottom: 1px solid rgb(185, 184, 184);
+// border-radius: 0px;  }
+.form-control:disabled{
+   background-color: #f0f0f0;
+}
+input::placeholder {
+   color: #131212;
+ }
+ @media (min-width: 768px) and (max-width: 1800px) {
+   .text-danger{
+      display: none;
+   }
+ }
+
+.form-control{
+   font-size: 12px;
+   color: #302d2d;
+   
+}
+@media (min-width: 950px) and (max-width: 1967px){
+   input[type="text"][disabled]{
+      font-size: 11px;
+      width: 110px;
+   }
+}
+.labelName{
+   border-top: 0px;
+   border-radius: 0px;
+   border-left: 0px;
+   border-right: 0px;
+   font-weight: bold;
+}
+input .labelName:focus{
+   border:none;
+}
+.card-header {
+    background: #2c9ee2;
+    color: #fff;
+  }
+  .card-footer {
+   padding: 0 0rem;
+   background-color: rgba(0, 0, 0, 0.03);
+   border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+  .j{
+   overflow: auto;
+}
+  .container {
+    font-size: 15px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+ .buttons{
+    text-align: left;
+    max-width: 90px;
+ }
+ .buttons button{
+    width: 80px;
+    color: white;
+ }
+ .buttons button:focus,
+ .buttons button:active{
+    border:1px solid black
+ }
+
+
+@media (min-width: 400px) and (max-width: 767px){
+   .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+   }
+   .form-control{
+      margin-top: 8px;
+      height: 35px;
+   }
+   .buttons{
+      margin-top: 8px;
+      
+   }
+  
+   .text-danger{
+      font-size: 12px;
+   }
+   .buttons button {
+               width: 73px;
+               color: white;
+                  font-size: 14px;
+   }
+   .table  {
+               border-bottom-color: currentColor;
+               font-size: 13px;
+            }
+            thead, tbody, tfoot, tr, td, th {
+               font-size: 12px;
+               padding: 11px;
+            }
+            th{
+               font-size: 12px;
+            }
+
+.card-body .table{
+   width: 100%;
+}
+
+//  .card-body table, thead,tr,td{
+//    overflow: auto;
+//  }              
+  
+}
+@media (min-width: 200px) and (max-width: 401px){
+   .form-control{
+      margin-top: 8px;
+      height: 35px;
+   }
+   .buttons{
+      margin-top: 8px;
+      
+   }
+  
+   .text-danger{
+      font-size: 12px;
+   }
+   .buttons button {
+               width: 65px;
+               color: white;
+                  font-size: 12px;
+   }
+   .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+     
+  }
+  
+}
+
+  
+.radio label,input{
+   font-size: 12px;
+   margin-left: 5px;
+   
+}
+.radio label:first-child{
+   margin-left: 2px;
+}
+@media (min-width: 200px) and (max-width: 353px){
+   .radio input{
+      font-size: 10px;
+      margin-left: 3px;
+      
+   }
+   .radio label{
+      margin-left: 0px;
+   }
+   .radio label:first-child{
+      margin-left: 2px;
+   }
+  .radio input[type=radio] {
+      border: 0px;
+     
+      height: 8px;
+  }
+}
+@media (min-width: 200px) and (max-width: 330px){
+
+}
+@media (min-width: 767px) and (max-width: 950px){
+   .buttons button {
+      width: 65px;
+      color: white;
+         font-size: 12px;
+}
+
+
+
+}
+@media (min-width: 300px) and (max-width: 500px){
+   td, th {
+    
+      font-size: 12px;
+      white-space: nowrap;
+  }
+   
+}
+
+td, th {
+    
+   font-size: 12px;
+   white-space: nowrap;
+}
+@media (min-width: 300px) and (max-width: 767px){
+   .row{
+      justify-content: center;
+    
+     }
+     .buttons button {
+      width: 65px;
+      color: white;
+         font-size: 12px;
+}
+}
+td{
+   padding: 4px;
+}
+@media (min-width: 950px) and (max-width: 1800px){
+   .buttons button {
+      width: 65px;
+      color: white;
+         font-size: 13px;
+}
+.btn-primary{
+   margin-left: 15px;
+   white-space: nowrap;
+   
+}
+.text-danger{
+   font-size: 10px;
+   white-space: nowrap;
+ width: 120px;
+ display: inline-flex;
+}
+}
+@media (min-width: 768px) and (max-width: 850px){
+  
+}
+
+.radio{
+   justify-content: center;
+   text-align: center;
+   
+}
+.radio .radio1{
+  margin-left: 25px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.radio .radio1:first-child{
+   margin-left: 0px;
+ }
+//  .label1:hover{
+//    font-size: larger;
+//    font-weight: 800;
+//    color:#2c9ee2;
+//    font-family:  sans-serif;
+
+//  }
+ @media (min-width: 340px) and (max-width: 450px){
+
+   .radio1{
+      padding: 0px;
+      margin: 0px;
+      width: 17px;
+      
+      
+   }
+
+   .label1{
+      font-size: 7px;
+   }
+  
+   .radio{
+      width:100%;
+   }
+ 
+ }
+ .radio{
+   display: flex;
+ }
+ .radio div{
+   
+   margin-top: 5px;
+   margin-left: 5px;
+   margin-bottom: 5px;
+   margin-right: 5px;
+   padding-left: 6px;
+   padding-right: 8px;
+   border-radius:10px;
+   padding-bottom: 3px;
+   
+   
+ }
+ @media (min-width: 230px) and (max-width: 300px){
+   .buttons button {
+      width: 55px;
+      color: white;
+         font-size: 10px;
+         white-space: nowrap;
+
+}
+.buttons{
+  position: relative;
+  left:48px;
+}
+// .btn-warning{
+//    margin-left: 15px;
+//    white-space: nowrap;
+   
+// }
+
+ }
+ .radioHover{
+   transition: all 0.3s ease 0s;
+
+ }
+ .radioHover:hover{
+   transform: translateY(-3px);
+  
+   border:1px solid rgb(102, 214, 102);
+   color:rgb(27, 27, 27);
+   font-weight: 600;
+   // box-shadow: 0px 15px 20px rgba(46,229,157,0.4);
+   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
+ 
+ }
+ @media only screen and (max-width: 951px) {
+   .show1 {
+       display: none;
+   }
+   
+}
+@media only screen and (min-width: 952px) {
+   .show2 {
+       display: none;
+   }
+  
+    
+    
+}
+.form2 p{
+   font-weight: 600;
+    position: relative;
+    color: #797676;
+    top: 6px;
+    left: 10px;
+    
+ }
+ .form3 p{
+    font-weight: 600;
+     position: relative;
+     color: #797676;
+     top: 6px;
+     left: 10px;
+     
+     
+  }
+  .third2{
+   font-size: 12px;
+
+  }
+  .dateField{
+   font-size: 11px;
+  }
+  .second2{
+   font-size: 12px;
+  }
+
+  @media (min-width: 330px) and (max-width: 767px){
+   .third2{
+      font-size: 12px;
+   
+     }
+     .dateField{
+      font-size: 13px;
+     }
+     .second2{
+      font-size: 12px;
+     }
+   
+
+  }
+  @media (min-width: 1200px) and (max-width: 1900px){
+   .form2 p{
+     font-weight: 600;
+      position: relative;
+      color: #797676;
+      top: 6px;
+      left: 10px;
+      font-size: 13px;
+      
+   }
+   .form3 p{
+      font-weight: 600;
+       position: relative;
+       color: #797676;
+       top: 6px;
+       left: 10px;
+       font-size: 12px;
+       
+       
+    }
+   }
+   @media (min-width: 770px) and (max-width: 1200px){
+      .form2 p{
+        font-size: 11px;
+        font-weight: 600;
+        position: relative;
+        color: #797676;
+        top: 6px;
+        left: 10px;
+      }
+      .form3 p{
+        font-size: 10px;
+        font-weight: 600;
+        position: relative;
+        color: #797676;
+        top: 6px;
+        left: 11px;
+      }
+    }

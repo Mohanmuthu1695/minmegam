@@ -1,0 +1,86 @@
+<div class="container-fluid mt-2">
+    <form [formGroup]="regionForm">
+
+        <div class="card ">
+
+            <div class="card-header">
+                Region
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="text" readonly placeholder="State" class="form-control " formControlName="state">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" readonly placeholder="Region" class="form-control " formControlName="region">
+                    </div>
+                    <!-- <div class="col-md-3">
+                    <input type="text" placeholder="Description" class="form-control ">
+
+                </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="card mt-2">
+            <div class="card-header">
+                Territory
+            </div>
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="text" placeholder="Territory Name" formControlName="territory"
+                            class="form-control ">
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary" (click)="onAddTerritory()">Add</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class=" card card-body c">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>S.NO</th>
+                            <th>Territory</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of respTerritoryData;let i=index">
+                            <td>{{i+1}}</td>
+                            <td> {{item.territoryName}}</td>
+                            <td><button class="btn btn-outline-danger" (click)="removeItem(i,item.territoryID)"><span
+                                        class="material-icons">
+                                        delete_outline </span>
+                                </button>
+                            </td>
+                        </tr>
+                        <!-- <tr>
+                        <td>2</td>
+                        <td> Chennai-East</td>
+                        <td><button class="btn btn-danger">del</button></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td> Chennai-South</td>
+                        <td><button class="btn btn-danger">del</button></td>
+                    </tr> -->
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            <button class="btn btn-success" (click)="onSubmit()">Save</button>
+            &nbsp;
+            <button class="btn btn-secondary" (click)="onBack()">Back</button>
+        </div>
+
+    </form>
+
+
+
+
+</div>

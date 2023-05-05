@@ -1,0 +1,79 @@
+<div class="container mt-2 "  #recommendation>
+    <div class="row">
+        <div class="col-12" *ngIf="recommendPlan.length>0;else
+            noRecommendations">
+
+            <div class="card">
+                <div class="card-header">Recommendation</div>
+            </div>
+            <div class="card ">
+                <div class="card-body j">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Company Name</th>
+
+                                <th>Status</th>
+
+
+                                <th>Next Action Date</th>
+                                <th>Actions</th>
+
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <tr *ngFor="let item of recommendPlan | paginate
+                            : {
+                                itemsPerPage: 10,
+                                currentPage: pageIndex,
+                                totalItems:allCount
+                              } ;index
+                                as i "
+                                >
+                                <td>{{i+ind}}</td>
+
+                                <td>{{ item.companyName }}</td>
+
+                                <td>{{ item.actStatus| titlecase }}</td>
+
+
+                                <td>{{ item.nextActDate | date: 'dd-MM-yyyy'
+                                    }}</td>
+                                <td>
+
+
+                                    <button id="but"
+                                        class="btn btn-outline-info btn-shadow
+                                        btn-pad
+                                        text-right d-inline-flex
+                                        align-items-center"
+                                        (click)="customerView(item.customerID)"
+                                        target="_blank"><mat-icon>remove_red_eye</mat-icon></button>
+                                   
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <pagination-controls class="text-nowrap" (pageChange)="pageChange($event)"></pagination-controls>
+            </div>
+        </div>
+        <ng-template #noRecommendations>
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-header">Recommendation</div>
+                </div>
+                <div class="card ">
+                    <div class="card-body " style="text-align:
+                        center; font-weight: 600;">
+                        <p>No Recommendations to show!</p>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

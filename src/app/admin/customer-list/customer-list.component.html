@@ -1,0 +1,170 @@
+<div class="container mt-2">
+    <div class="header">
+        <div class="row">
+            <div class="col-md-4">
+                <h2> Customer List</h2>
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control " (keyup)="applyFilter($event)" placeholder="Search" >
+            </div>
+           
+            <div class="col-md-4 text-center">
+                <button class="btn btn-success px-5" routerLink="/customer-create">Create Customer</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="middle">
+        <div class="card" *ngFor="let item of respData | paginate
+        : {
+            itemsPerPage: 10,
+            currentPage: pageIndex,
+            totalItems:count
+          };">
+            <div class="card card-header">{{item.companyName}}</div>
+
+
+
+            <div class="card card-body">
+                <div class="row">
+                    <div class="col-md-4 col-12 col-xs-12 col-sm-12 col-lg-4 col-xl-4">
+                        <div class="row">
+                            <div class="col-md-5 col-xs-5 col-sm-5 col-lg-5 col-5 col-xl-5 text-left">
+                                Customer Name
+                            </div>
+                            <div class="col-md-1 col-xs-1 col-sm-1 col-lg-1 col-1 col-xl-1 text-left ">:</div>
+                            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 col-6 col-xl-6 text-left">
+                                {{item.cusName
+                                }}</div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 col-12 col-xs-12 col-sm-12 col-lg-4 col-xl-4">
+                        <div class="row">
+                            <div class="col-md-5 col-xs-5 col-sm-5 col-lg-5 col-5 col-xl-5 text-left">
+                               Industry Type
+                            </div>
+                            <div class="col-md-1 col-xs-1 col-sm-1 col-lg-1 col-1 col-xl-1 text-left ">:</div>
+                            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 col-6 col-xl-6 text-left">
+                                {{item.industryType}}</div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 col-12 col-xs-12 col-sm-12 col-lg-4 col-xl-4">
+                        <div class="row">
+                            <div class="col-md-5 col-xs-5 col-sm-5 col-lg-5 col-5 col-xl-5 text-left">
+                                Target Product
+                            </div>
+                            <div class="col-md-1 col-xs-1 col-sm-1 col-lg-1 col-1 col-xl-1 text-left ">:</div>
+                            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 col-6 col-xl-6 text-left">
+                                {{item.targetProduct}}</div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-12"></div>
+                </div> 
+                <div class="row">
+                  
+                    
+                    <div class="col-md-4 col-12 col-xs-12 col-sm-12 col-lg-4 col-xl-4">
+                        <div class="row">
+                            <div class="col-md-5 col-xs-5 col-sm-5 col-lg-5 col-5 col-xl-5 text-left">
+                                Last activity date
+                            </div>
+                            <div class="col-md-1 col-xs-1 col-sm-1 col-lg-1 col-1 col-xl-1 text-left ">:</div>
+
+                            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 col-6 col-xl-6 text-left">
+                                {{ item.lastActDate === '0000-00-00 00:00:00' ? '-' : item.lastActDate === null ? '-':item.lastActDate==='00-00-0000'?'-': item.lastActDate  }}</div>
+
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-md-4 col-12">
+                        <div class="row">
+                            <div class="col-md-6 col-6 text-left">Customer territory</div>
+                            <div class="col-md-1 col-1 text-left">:</div>
+
+                            <div class="col-md-5 col-5 text-left">pkt</div>
+
+                        </div>
+                    </div> -->
+                    <div class="col-md-4 col-12 col-xs-12 col-sm-12 col-lg-4 col-xl-4">
+                        <div class="row">
+                            <div class="col-md-5 col-xs-5 col-sm-5 col-lg-5 col-5 col-xl-5 text-left">Next action date
+                            </div>
+                            <div class="col-md-1 col-xs-1 col-sm-1 col-lg-1 col-1 col-xl-1 text-left ">:</div>
+
+                            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 col-6 col-xl-6 text-left">
+                                {{ item.nextActDate === '0000-00-00 00:00:00' ? '-':item.nextActDate === null ? '-':item.nextActDate==='00-00-0000'?'-': item.nextActDate }}</div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12 col-xs-12 col-sm-12 col-lg-4 col-xl-4">
+                        <div class="row">
+                            <div class="col-md-5 col-xs-5 col-sm-5 col-lg-5 col-5 col-xl-5 text-left">Total Activity
+                            </div>
+                            <div class="col-md-1 col-xs-1 col-sm-1 col-lg-1 col-1 col-xl-1 text-left ">:</div>
+
+                            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 col-6 col-xl-6 text-left">
+                                {{item.activityCount >0 && item.activityCount <10 ? '0'+ item.activityCount :item.activityCount === null ? '0': item.activityCount }}</div>
+
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-4 col-12 col-xs-12 col-sm-12 col-lg-4 col-xl-4">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 col-6 col-xl-6 text-left">Target product
+                            </div>
+                            <div class="col-md-1 col-xs-1 col-sm-1 col-lg-1 col-1 col-xl-1 text-left ">:</div>
+
+                            <div class="col-md-5 col-xs-5 col-sm-5 col-lg-5 col-5 col-xl-5 text-left">Token</div>
+
+                        </div>
+                    </div> -->
+                    <!-- <div class="col-md-4 col-12">
+                        <div class="row">
+                            <div class="col-md-6 col-6 text-left">Customer name</div>
+                            <div class="col-md-1 col-1 text-left">:</div>
+
+                            <div class="col-md-5 col-5 text-left">Bharath</div>
+
+                        </div>
+                    </div> -->
+                </div>
+                <div class="row mt-1" id="butgroup">
+                    <div class="col-md-9  col-6">
+                    </div>
+
+                    <div class="col-md-1 col-2 ">
+
+                        <button id="but"
+                            class="btn btn-outline-info btn-shadow btn-pad text-right d-inline-flex align-items-center"
+                            (click)="customerView(item.customerId)"  target="_blank"><mat-icon>remove_red_eye</mat-icon></button>
+                    </div>
+                    <div class="col-md-1 col-2">
+                        <button id="but"
+                            class="btn btn-outline-warning btn-shadow btn-pad text-right d-inline-flex align-items-center"
+                            (click)="customerEdit(item.customerId)"><mat-icon>create</mat-icon></button>
+                    </div>
+                    <div class="col-md-1 col-2" *ngIf="admin || it">
+                        <button id="but" (click)="getDelete(item.customerId)"
+                            class="btn btn-outline-danger btn-shadow btn-pad text-right d-inline-flex align-items-center"><mat-icon>delete_outline</mat-icon></button>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <pagination-controls class="text-nowrap" (pageChange)="pageChange($event)"></pagination-controls>
+    </div>
+    
+    
+</div>

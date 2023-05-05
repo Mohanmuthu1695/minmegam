@@ -1,0 +1,40 @@
+<div class="container-fluid mt-2">
+    <div class="card ">
+        <form [formGroup]="regionRegisterForm">
+            <div class="card-header">
+                Region
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <select type="text" formControlName="state" placeholder="State" class="form-control ">
+                            <option value="" disabled hidden selected>Select State</option>
+                            <option *ngFor="let i of stateList">
+                                {{i.state}}</option>
+                            </select>
+                        <div *ngIf="submit && f.state.errors" class="text-danger">
+                            <div *ngIf="f.state.errors.required"><i>*State name is required!</i></div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" formControlName="region" placeholder="Region" class="form-control ">
+                        <div *ngIf="submit && f.region.errors" class="text-danger">
+                            <div *ngIf="f.region.errors.required"><i>*Region name is required!</i></div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-3">
+                    <input type="text" placeholder="Description" class="form-control ">
+
+                </div> -->
+                </div>
+            </div>
+            <div class="card-footer text-center">
+
+                <button class="btn btn-success " (click)="onSubmit()">Save</button>
+                &nbsp;
+                <button class="btn btn-secondary" (click)="onBack()">Back</button>
+            </div>
+        </form>
+    </div>
+</div>

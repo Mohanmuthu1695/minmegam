@@ -1,0 +1,52 @@
+.card-header {
+  background: #2c9ee2;
+  color: #fff;
+}
+* {
+  font-size: 15px;
+  font-weight: 500;
+}
+.c {
+  max-height: 65vh;
+  overflow-y: scroll;
+}
+.container {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.material-icons {
+  // width: 5%;
+  // height: 5%;
+  font-size: 21px;
+  // font-weight: 500;
+  // text-align: justify;
+}
+// tbody {
+
+//   overflow-y: auto;
+// }
+
+@media only screen and (min-width: 321px) and (max-width: 1010px) {
+  .form-control {
+    margin-bottom: 0.5rem;
+  }
+  .card-body {
+    .table {
+      button {
+        border: none;
+        :hover {
+          transition: none;
+        }
+        .material-icons {
+          // width: 5%;
+          // height: 5%;
+          font-size: 22px;
+          // font-weight: 500;
+          // text-align: justify;
+          margin-top: -2px;
+        }
+      }
+    }
+  }
+}

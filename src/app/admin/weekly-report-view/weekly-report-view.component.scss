@@ -1,0 +1,47 @@
+.card-header {
+  background: #2c9ee2;
+  color: #fff;
+}
+.card-body {
+  max-height: 85vh;
+  overflow-y: scroll;
+}
+
+.container {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+@media only screen and (min-width: 300px) and (max-width: 753px) {
+  th {
+    white-space: nowrap;
+  }
+  .header input {
+    margin-top: 2px;
+  }
+}
+.weeklyPlan{
+  background-color:  rgba(0, 255, 0, 0.25);
+  backdrop-filter: blur(5px);
+}
+.inActivity{
+  background-color: rgb(173, 216, 230,0.6);
+  backdrop-filter: blur(5px);
+}
+.notActivity{
+  background-color: rgba(234, 13, 13, 0.45)
+}
+.weeklyPlan td:last-child{
+  background-color:white;
+  backdrop-filter: blur(5px);
+}
+.inActivity td:last-child{
+  background-color: white;
+  backdrop-filter: blur(5px);
+}
+.notActivity td:last-child{
+  background-color: white;
+}
+td,th{
+  text-align: center;
+}

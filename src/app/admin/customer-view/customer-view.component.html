@@ -1,0 +1,253 @@
+<div class="container-fluid mt-2">
+    <div class="card ">
+        <div class="card-header">
+            Customer
+        </div>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="" class="">Company Name &nbsp;: &nbsp; {{respData?.companyName}}
+
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    <label for="" class="">Industry Type &nbsp; : &nbsp;{{respData?.industryType}}
+
+                    </label>
+
+                </div>
+               
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="" class="">Target Product &nbsp; :&nbsp; {{respData?.targetProduct}}
+
+                    </label>
+
+
+                </div>
+                <div class="col-md-6">
+                    <label for="" class="">Total Activity &nbsp; :&nbsp; <b>{{allCount < 10 && allCount >0  ? '0' + allCount : allCount}}</b>
+
+                    </label>
+
+
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+    <div class="card mt-2">
+        <div class="card-header">
+            Contact
+        </div>
+        <div class="card-body ">
+            <form>
+                <div class="row my-1">
+                    <div class="col-md-4">
+                        <label for="" class="">Customer Name &nbsp; : &nbsp; {{respData?.cusName === null?'-':respData?.cusName === ''?'-':respData?.cusName}}
+
+                        </label>
+
+                    </div>
+                    <div class="col-md-3">
+                        <label for="" class="">Mobile number &nbsp; : &nbsp; {{respData?.cusPhoneNo === null?'-':respData?.cusPhoneNo === ''?'-':respData?.cusPhoneNo}}
+
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="" class="">Phone number &nbsp; : &nbsp; {{respData?.landLineNumber === null?'-':respData?.landLineNumber === ''?'-':respData?.landLineNumber}}
+
+                        </label>
+                    </div>
+                    <!-- <div class="col-md-3">
+                        <input type="text" placeholder="Mobile Number" class="form-control ">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" placeholder="Phone" class="form-control ">
+                    </div> -->
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="" class="">Email Id &nbsp; : &nbsp; {{respData?.cusEmail === null?'-':respData?.cusEmail === ''?'-':respData?.cusEmail }}
+
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+
+                        <label for="" class="">Additional contact &nbsp; : &nbsp; {{respData?.cusAddContact === null?'-':respData?.cusAddContact === ''?'-':respData?.cusAddContact}}
+
+                        </label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+    <div class="card mt-2">
+        <div class="card-header">
+            Address
+        </div>
+        <div class="card-body ">
+            <form>
+                <div class="row my-1">
+                    <div class="col-md-3">
+                        <label for="" class="">Region &nbsp; : &nbsp; {{respData?.cusRegion}}
+
+                        </label>
+
+                    </div>
+                    <div class="col-md-3">
+                        <label for="" class="">Territory &nbsp; : &nbsp; {{respData?.cusTerritory}}
+
+                        </label>
+                    </div>
+                    <!-- <div class="col-md-3">
+                        <label for="" class="">State &nbsp; : &nbsp; {{respData?.cusState}}
+
+                        </label>
+                    </div> -->
+                    <!-- <div class="col-md-3">
+                        <input type="text" placeholder="Mobile Number" class="form-control ">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" placeholder="Phone" class="form-control ">
+                    </div> -->
+                </div>
+                <!-- <div class="row my-1">
+                    <div class="col-md-3">
+                        <input type="text" placeholder="Region" class="form-control ">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" placeholder="Territory" class="form-control ">
+                    </div>
+                </div>
+                <div class="row my-1">
+                    <div class="col-md-3">
+                        <input type="text" placeholder="State" class="form-control ">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" placeholder="District" class="form-control ">
+                    </div>
+                </div> -->
+                <div class="row">
+                    <!-- <div class="col-md-3">
+                        <label for="" class="">District &nbsp; : &nbsp; {{respData?.cusDistrict}}
+
+                        </label>
+                    </div> -->
+                    <div class="col-md-5">
+                        <label for="" class="">Address &nbsp; : &nbsp; {{respData?.cusAddress === null?'-':respData?.cusAddress === ''?'-':respData?.cusAddress}}
+
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+    <div class="card mt-2 ">
+        <div class="card-header">
+            Activity
+            <button class="btn btn-warning float-end" (click)="open(exampleModalCenter)">Add Activity</button>
+
+        </div>
+        <div class="card-body j">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-nowrap">Activity Date</th>
+                        <th class="text-nowrap">Status</th>
+                        <th class="text-nowrap">Next Action Date</th>
+                        <th class="text-nowrap">Notes</th>
+                        <th class="text-nowrap">Activity By</th>
+
+
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of activityData">
+                        <td>{{item.activityDate}}</td>
+                        <td>{{item.status}}</td>
+                        <td>{{item.nextActionDate===null?'N/A':item.nextActionDate}}</td>
+                        <td>{{item.notes}}</td>
+                        <td>{{item.name}} </td>
+                        <!-- <td><button class="btn btn-outline-danger">confirm</button></td> -->
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <div class="card-body ">
+                <div class="row">
+                    <p class="text-center"><b>No Activities Found</b></p>
+                </div>
+            </div> -->
+
+            <!-- <div class="row">
+                <div class="col-md-12 text-center">
+
+
+                    &nbsp;
+
+                </div>
+            </div> -->
+
+        </div>
+
+    </div>
+
+    <div class="card-footer text-center">
+        <button class="btn btn-secondary" (click)="onBack()">Back</button>
+    </div>
+</div>
+<ng-template #exampleModalCenter let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Activity</h4>
+    </div>
+    <div class="modal-body lg">
+        <form [formGroup]="activityForm">
+            <div class="row">
+                <div class="col">
+                    <!-- <input type="text" placeholder="status" formControlName="status" class="form-control"> -->
+                    <select type="text" placeholder="status" formControlName="status" class="form-control"(change)="setNull()">
+                        <option value="" selected hidden disabled>Select status</option>
+                        <option *ngFor="let status of getstatus">
+                            {{status.status}}</option>
+                    </select>
+                    <div *ngIf="submit && f.status.errors" class="text-danger">
+                        <div *ngIf="f.status.errors.required"><i>*status is required!</i></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" formControlName="nextActionDate"
+                        placeholder="Next action date" [minDate]="minDate" bsDatepicker>
+                    <div *ngIf="submit && f.nextActionDate.errors" class="text-danger">
+                        <div *ngIf="f.nextActionDate.errors.required"><i>*Next action date is required!</i></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <textarea type="text" class="form-control" formControlName="notes" placeholder="Notes"></textarea>
+                    <div *ngIf="submit && f.notes.errors" class="text-danger">
+                        <div *ngIf="f.notes.errors.required"><i>*Notes action date is required!</i></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger footBtn" (click)="d('Cross click')">Cancel</button>
+        <button type="button" class="btn btn-primary footBtn" (click)="onAdd()">Add</button>
+    </div>
+
+
+
+</ng-template>

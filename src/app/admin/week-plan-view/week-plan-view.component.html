@@ -1,0 +1,107 @@
+<div class="container">
+    <div class="header">
+        <form [formGroup]="fromTo">
+        <div class="row" style="justify-content: center;text-align: center;">
+            
+            <div class="col-md-12" *ngIf="weeklyPlanCreate.length>0">
+                <span>{{weeklyPlanCreate[0]?.planStartDate |date}}</span> &nbsp;  to &nbsp; <span>{{weeklyPlanCreate[0]?.planEndDate |date}}</span> 
+                <!-- <input type="text" class="form-control" readonly placeholder="From" formControlName="planStartDate"[value]="fromTo.get('planStartDate').value|date"> -->
+            </div>
+           
+            
+        </div>
+    </form>
+   
+        <div class="middle mt-2">
+            <div class="card">
+                <div class="card-header">Weekly Plan</div>
+                <div class="card-body j">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Company Name</th>
+                                <th>Status</th>
+                                <th>Next Action Date</th>
+                                <th style="text-align: left;">Notes</th>
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let item of weeklyPlanCreate;index as i">
+                                <td>{{i+1}}</td>
+                                <td>{{item.companyName}}</td>
+                                <td>{{item.actStatus===null?'N/A':item.actStatus===''?'N/A': item.actStatus}}</td>
+                                <td>{{item.nextActionDate===null?'N/A':item.nextActionDate===''?'N/A':item.nextActionDate| date}}</td>
+                                <td style="text-align: left;   width: 300px;word-wrap: break-word;">{{item.actNotes===null?'N/A':item.actNotes===''?'N/A': item.actNotes}}</td>
+                                <td class="td">
+                                    <button
+                                        class="btn btn-outline-info  btn-shadow btn-pad text-right d-inline-flex align-items-center"  target="_blank" (click)="customerView(item.customerID)"><mat-icon>remove_red_eye</mat-icon></button>
+                                    &nbsp;
+                                    <button
+                                        class="btn btn-outline-warning btn-shadow btn-pad text-right d-inline-flex align-items-center"
+                                        (click)="open(exampleModalCenter,item.customerID)" >
+                                        <mat-icon aria-hidden="false" aria-label="Example home icon ">business_center</mat-icon>
+                                    </button>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer text-center">
+            <button class="btn btn-secondary" (click)="onBack()">Back</button>
+        </div>
+    </div>
+    <ng-template #exampleModalCenter let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title">Activity</h4>
+        </div>
+        <div class="modal-body lg">
+            <form [formGroup]="activityForm">
+                <div class="row">
+                    <div class="col">
+                        <select type="text" placeholder="status" formControlName="status" class="form-control" (change)="setNull()">
+                            <option value="" selected hidden disabled>Select status</option>
+                            <option *ngFor="let status of getstatus">
+                                {{status.status}}</option>
+                        </select>
+                        
+                        <div *ngIf="submit && f.status.errors" class="text-danger">
+                            <div *ngIf="f.status.errors.required"><i>*status is required!</i></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="nextActionDate"
+                            placeholder="Next action date" bsDatepicker [minDate]="minDate">
+                        <div *ngIf="submit && f.nextActionDate.errors" class="text-danger">
+                            <div *ngIf="f.nextActionDate.errors.required"><i>*Next action date is required!</i></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <textarea type="text" class="form-control" formControlName="notes"
+                            placeholder="Notes"></textarea>
+                        <div *ngIf="submit && f.notes.errors" class="text-danger">
+                            <div *ngIf="f.notes.errors.required"><i>*Notes action date is required!</i></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger footBtn" (click)="d('Cross click')">Cancel</button>
+            <button type="button" class="btn btn-primary footBtn" (click)="onAdd()">Add</button>
+        </div>
+
+
+
+    </ng-template>

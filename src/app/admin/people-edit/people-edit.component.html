@@ -1,0 +1,146 @@
+<div class="container-fluid mt-2">
+    <form [formGroup]="peopleForm">
+        <div class="card ">
+            <div class="card-header">
+                People
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" placeholder="People Name" formControlName="peopleName" class="form-control ">
+                        <div *ngIf="submit && f.peopleName.errors" class="text-danger">
+                            <div *ngIf="f.peopleName.errors.required"><i>*Name is required!</i></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <select type="text" placeholder="Select Department" formControlName="peopleDepartment"
+                            class="form-control ">
+                            <option value="" selected hidden disabled>Select department</option>
+                            <option *ngFor="let i of department" value='{{i}}'>
+                                {{i}}</option>
+
+                        </select>
+                        <div *ngIf="submit && f.peopleDepartment.errors" class="text-danger">
+                            <div *ngIf="f.peopleDepartment.errors.required"><i>*Department is required!</i></div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <input type="email" placeholder="User Name" formControlName="userName" class="form-control " (input)="suggestEmailDomains($event)">
+                        <div *ngIf="submit && f.userName.errors" class="text-danger">
+                            <div *ngIf="f.userName.errors.required"><i>*User name is required!</i></div>
+                            <div *ngIf="f.userName.errors.email"><i>*User name must be email!</i></div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <input type="text" placeholder="Password" formControlName="userPassword" class="form-control ">
+                        <div *ngIf="submit && f.userPassword.errors" class="text-danger">
+                            <div *ngIf="f.userPassword.errors.required"><i>*Password is required!</i></div>
+                            <div *ngIf="f.userPassword.errors.minlength">Minmium Length is 6.</div>
+                            <div *ngIf="f.userPassword.errors.maxlength">Maximum Length is 15.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" placeholder="Confirm Password" formControlName="confirmUserPassword"
+                            class="form-control ">
+                        <div *ngIf="submit && f.confirmUserPassword.errors" class="text-danger">
+                            <div *ngIf="f.confirmUserPassword.errors.required"><i>*Confirm password is required!</i>
+                            </div>
+                            <div *ngIf="f.confirmUserPassword.errors.confirmedValidator">Password and Confirm
+                                Password
+                                must be match.
+                            </div>
+                            <div *ngIf="f.confirmUserPassword.errors.minlength">Minmium Length is 6.</div>
+                            <div *ngIf="f.confirmUserPassword.errors.maxlength">Maximum Length is 15.</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-2">
+            <div class="card-header">
+                Territory
+            </div>
+            <div class="card-body ">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <select type="text" placeholder="Select Region" #j (change)="onSelected(j.value)"
+                            formControlName="assignedRegion" class="form-control">
+
+                            <option selected value="" hidden disabled>Select region</option>
+
+                            <option *ngFor="let i of regionList"
+                                value='{"regName":"{{i.regionName}}","assignedRegion":"{{i.regionID}}"}'>
+                                {{i.regionName}}</option>
+                        </select>
+
+                    </div>
+                    <div class="col-md-3" id="ter">
+                        <select type="text" placeholder="Territory Name" #terId formControlName="assignedTerritory"
+                            class="form-control ">
+                            <option selected value="" hidden disabled>Select territory</option>
+                            <option *ngFor="let i of territoryList"
+                                value='{"terName":"{{i.territoryName}}","assignedTerritory":"{{i.territoryID}}"}'>
+                                {{i.territoryName}}
+                            </option>
+                        </select>
+
+                    </div>
+                    <!-- <div class="col-md-3">
+                        <input type="text" placeholder="Territory List" class="form-control ">
+                    </div> -->
+                    <div class="col-md-3">
+                        <button class="btn btn-primary" (click)="onAdd()">Add</button>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class=" card card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>S.NO</th>
+                            <th>Region</th>
+
+                            <th>Territory</th>
+
+                            <!-- <th>Territory List</th> -->
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of territoryArray;let i=index">
+                            <td>{{i+1}}</td>
+                            <td>{{item.regionName}}</td>
+
+                            <td>{{item.territoryName}}</td>
+                            <td><button class="btn btn-outline-danger" (click)="removeItem(i,item.peopleRegionId)">
+                                    <span class="material-icons">delete</span>
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            <button class="btn btn-success" (click)="onSubmit()">Save</button>
+            &nbsp;
+            <button class="btn btn-secondary" (click)="onBack()">Back</button>
+        </div>
+
+
+
+    </form>
+
+</div>

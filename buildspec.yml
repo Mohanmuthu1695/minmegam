@@ -1,0 +1,25 @@
+version: "0.2"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+  pre_build:
+    commands:
+      - echo "Prebuild, installing NPM Dependencies"
+      - npm install
+      - npm install -g @angular/cli@12.0.5
+  build:
+    commands:
+      - echo Build started on `date`
+      - ng build --configuration=production
+      - echo "Build Finished"
+  post_build:
+    commands:
+      - mv appspec.yml ./dist/
+      - aws s3 cp dist s3://minmegamsales-dev-artifact/user/ --recursive
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - "**/*"
+  base-directory: "dist*"
+  discard-paths: yes

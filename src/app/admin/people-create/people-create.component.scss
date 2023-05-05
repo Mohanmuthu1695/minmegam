@@ -1,0 +1,27 @@
+.card-header {
+  background: #2c9ee2;
+  color: #fff;
+}
+.container-fluid {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+@media only screen and (min-width: 321px) and (max-width: 1010px) {
+  .col-md-4 {
+    margin-top: 4px;
+  }
+  #ter {
+    margin-bottom: 3px;
+  }
+  .card td button {
+    border: none;
+  }
+}
+.material-icons {
+  // width: 5%;
+  // height: 5%;
+  font-size: 21px;
+  // font-weight: 500;
+  // text-align: justify;
+}

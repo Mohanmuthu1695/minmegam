@@ -1,0 +1,74 @@
+
+
+<div class="row ">
+    <!-- <div class="col-4"></div> -->
+    <div class="col-12 text-center mt-4 logo-container">
+        
+            <ul>
+            <li>
+                 <div class="logo-holder logo-1">
+                  
+                    <img src="https://images-minmegamweb.s3.ap-south-1.amazonaws.com/minmegam/minmegam/minmegam-logo.png"alt = "minmegam" />
+                      <p>Sales App</p>
+                   
+                  </div>
+            </li>
+            </ul>
+        </div>
+    
+    <!-- <div class="col-4"></div> -->
+</div>
+<div class="h-100 bg-animation">
+    <div class="d-flex h-90 justify-content-center align-items-center">
+
+        <form [formGroup]="loginForm" autocomplete="off">
+            <div class="col-md-12 mt-3 loginblock">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span>Login</span>
+                        </div>
+                        <div class="modal-body">
+                            <div *ngIf="showUsername">
+                                <div class="form-group mt-4 m-3">
+                                    <input id="username" type="email" placeholder="Enter Username"
+                                        formControlName="username" class="form-control"
+                                        [ngClass]="{ 'is-invalid': next && loginFormControls.username.errors }">
+                                    <div *ngIf="next && loginFormControls.username.errors" class="invalid-feedback">
+                                        <div *ngIf="loginFormControls.username.errors.required">Username is required
+                                        </div>
+                                        <div *ngIf="loginFormControls.username.errors.email">Username should be email
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-12 text-center m-2">
+                                    <a class="text-primary">Forgot Password ?</a>
+                                </div> -->
+                                <div class="text-center  mb-3">
+                                    <button type="button" class="btn btn-danger btn-md m-2">Cancel</button>
+                                    <button type="button" class="btn btn-primary btn-md m-2"
+                                        (click)="onNext()">Next</button>
+                                </div>
+                            </div>
+                            <div class="" *ngIf="showPassword">
+                                <div class="form-group mt-4 m-3">
+                                    <input id="password" type="password" class="form-control" formControlName="password"
+                                        placeholder="Enter password"
+                                        [ngClass]="{ 'is-invalid': submit && loginFormControls.password.errors }">
+                                    <div *ngIf="submit && loginFormControls.password.errors" class="invalid-feedback">
+                                        <div *ngIf="loginFormControls.password.errors.required">password is required
+                                        </div>
+                                    </div>
+                                    <div class="text-center form-group mb-3">
+                                        <button type="button" class="btn btn-primary btn-md m-2"
+                                            (click)="onSubmit()">Login</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,122 @@
+.card-header {
+  background: #2c9ee2;
+  color: #fff;
+}
+.container {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.card-body {
+  flex: 1 1 auto;
+  padding: 0.5rem 1rem;
+}
+.col-md-1 {
+  flex: 0 0 auto;
+  width: 5.333333%;
+}
+@media only screen and (min-width: 753px) and (max-width: 990px) {
+  .header {
+    // h2 {
+    //   display: none;
+    // }
+    flex-direction: column;
+    .form-control {
+      margin-top: 3px;
+      margin-bottom: 3px;
+    }
+    button {
+      font-size: small;
+      width: min-content;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    // button:after {
+    //   content: "";
+    // }
+  }
+  #middle {
+    .card-body {
+      .row {
+        flex-direction: row;
+        .col-md-9 {
+          width: 3.2rem;
+          margin-right: 2.3rem;
+        }
+        .col-md-1 {
+          width: 3rem;
+          height: 2rem;
+          float: inline-end;
+          margin-top: 2rem;
+
+          button {
+            width: 2%;
+            height: 2%;
+            border: none;
+          }
+          button:hover {
+            background-color: white;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 753px) {
+  .header {
+    h2 {
+      display: none;
+    }
+    div {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .form-control {
+      margin-top: 3px;
+      margin-bottom: 3px;
+    }
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 800px) {
+  /* For tablets: */
+  .mat-icon {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 10px;
+    width: 24px;
+  }
+  #middle {
+    .card-body {
+      .row {
+        flex-direction: row;
+        .col-md-9 {
+          width: 3.2rem;
+          margin-right: 2rem;
+        }
+        .col-md-1 {
+          width: 3rem;
+          height: 2rem;
+          float: inline-end;
+
+          margin-top: -1rem;
+
+          button {
+            width: 2%;
+            height: 2%;
+            border: none;
+          }
+          button:hover {
+            background-color: white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,373 @@
+<div class="container-fluid mt-2">
+    <form [formGroup]="customerForm">
+        <div class="card ">
+            <div class="card-header">
+                Customer
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" placeholder="Company Name" readonly formControlName="companyName"
+                            class="form-control ">
+                        <div *ngIf="submit && f.companyName.errors" class="text-danger">
+                            <div *ngIf="f.companyName.errors.required"><i>*Company name is required!</i></div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-3" *ngIf="!showdropdown">
+                        <input type="text" placeholder="Industry Type" formControlName="industryType"
+                            class="form-control " (click)="showdropdown=true">
+                        <div *ngIf="submit && f.industryType.errors" class="text-danger">
+                            <div *ngIf="f.industryType.errors.required"><i>*Industry type is required!</i></div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="col-md-3"*ngIf="showdropdown">
+                        <select type="text" placeholder="Target Product" formControlName="targetProduct"
+                            class="form-control ">
+                            <option value='' disabled hidden selected>Industry</option>
+                            <option *ngFor="let industryType of getindustry" >{{ industryType.industryType }}</option>
+                            </select>
+                        <div *ngIf="submit && f.targetProduct.errors" class="text-danger">
+                            <div *ngIf="f.targetProduct.errors.required"><i>*Target product is required!</i></div>
+                        </div>
+
+                    </div> -->
+                    
+                    <!-- <div class="col-md-3"*ngIf="!showdropdown1">
+                        <input type="text" placeholder="Target Product" formControlName="targetProduct"
+                            class="form-control " (click)="showdropdown1=true">
+                        <div *ngIf="submit && f.targetProduct.errors" class="text-danger">
+                            <div *ngIf="f.targetProduct.errors.required"><i>*Target product is required!</i></div>
+                        </div>
+                    </div> -->
+              
+                    <!-- <div class="col-md-3"*ngIf="showdropdown1">
+                        <select type="text" placeholder="Target Product" formControlName="targetProduct"
+                            class="form-control ">
+                            <option value="" disabled hidden selected>Target Product</option>
+                            <option *ngFor="let targetProduct of gettargetProduct"  >{{ targetProduct.targetProduct }}</option>
+                            </select>
+                        <div *ngIf="submit && f.targetProduct.errors" class="text-danger">
+                            <div *ngIf="f.targetProduct.errors.required"><i>*Target product is required!</i></div>
+                        </div>
+
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="card mt-2">
+            <div class="card-header">
+                Company Type
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <!-- <div class="col-md-3">
+                        <input type="text" placeholder="Company Name" readonly formControlName="companyName"
+                            class="form-control ">
+                        <div *ngIf="submit && f.companyName.errors" class="text-danger">
+                            <div *ngIf="f.companyName.errors.required"><i>*Company name is required!</i></div>
+                        </div>
+                    </div> -->
+                    <div class="col-md-3" *ngIf="!showdropdown">
+                        <input type="text" placeholder="Industry Type" formControlName="industryType"
+                            class="form-control " (click)="showdropdown=true">
+                        <div *ngIf="submit && f.industryType.errors" class="text-danger">
+                            <div *ngIf="f.industryType.errors.required"><i>*Industry type is required!</i></div>
+                        </div>
+                    </div>
+                    <div class="col-md-3"*ngIf="showdropdown">
+                        <select type="text" placeholder="Target Product" formControlName="targetProduct"
+                            class="form-control ">
+                            <option value='' disabled hidden selected>Industry</option>
+                            <option *ngFor="let industryType of getindustry" >{{ industryType.industryType }}</option>
+                            </select>
+                        <div *ngIf="submit && f.targetProduct.errors" class="text-danger">
+                            <div *ngIf="f.targetProduct.errors.required"><i>*Target product is required!</i></div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="col-md-3"*ngIf="!showdropdown1">
+                        <input type="text" placeholder="Target Product" formControlName="targetProduct"
+                            class="form-control " (click)="showdropdown1=true">
+                        <div *ngIf="submit && f.targetProduct.errors" class="text-danger">
+                            <div *ngIf="f.targetProduct.errors.required"><i>*Target product is required!</i></div>
+                        </div>
+                    </div>
+              
+                    <div class="col-md-3"*ngIf="showdropdown1">
+                        <select type="text" placeholder="Target Product" formControlName="targetProduct"
+                            class="form-control ">
+                            <option value="" disabled hidden selected>Target Product</option>
+                            <option *ngFor="let targetProduct of gettargetProduct"  >{{ targetProduct.targetProduct }}</option>
+                            </select>
+                        <div *ngIf="submit && f.targetProduct.errors" class="text-danger">
+                            <div *ngIf="f.targetProduct.errors.required"><i>*Target product is required!</i></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-2">
+            <div class="card-header">
+                Contact
+            </div>
+            <div class="card-body ">
+
+                <div class="row my-1">
+                    <div class="col-md-3">
+                        <input type="text" placeholder="Name" formControlName="customerName" class="form-control ">
+                        <div *ngIf="submit && f.customerName.errors" class="text-danger">
+                            <div *ngIf="f.customerName.errors.required"><i>*Name is required!</i></div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+
+                        <input type="text" placeholder="Designation" formControlName="customerDesignation"
+                            class="form-control ">
+                        <div *ngIf="submit && f.customerDesignation.errors" class="text-danger">
+                            <div *ngIf="f.customerDesignation.errors.required"><i>*Designation is required!</i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-1">
+                    <div class="col-md-3">
+                        <input type="text" placeholder="Mobile Number" formControlName="mobileNumber" (click)="removeerror()" 
+                            class="form-control " (keypress)="onKeyPress($event)"minlength="10" maxlength="10">
+                            <div *ngIf="submit && f.mobileNumber.errors" class="text-danger">
+                               
+                                <div *ngIf="f.mobileNumber.errors.maxlength"><i>*Max length is 10!</i></div>
+                         
+                            </div>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" placeholder="Phone"(keypress)="onKeyPress($event)" formControlName="landLineNumber" class="form-control "(click)="removeerror()"  minlength="10" >
+                        <div *ngIf="submit && f.landLineNumber.errors" class="text-danger">
+                           
+                            
+                            <div *ngIf="f.landLineNumber.errors.minlength"><i>*Min length is 10!</i></div>
+                        </div>
+                    </div>
+                    <div class="row" style="text-align: center;">
+                        <div  class="col-6 text-danger"  *ngIf="showerror">*Mobile or Phone Number Required</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 my1">
+                        <input type="text" placeholder="Email Id" formControlName="cusEmail" class="form-control "(input)="suggestEmailDomains($event)">
+                        <!-- <div *ngIf="submit && f.cusEmail.errors" class="text-danger">
+                            <div *ngIf="f.cusEmail.errors.required"><i>*Email is required!</i></div>
+                            <div *ngIf="f.cusEmail.errors.email"><i>*Email is required!</i></div>
+                        </div> -->
+                    </div>
+                    <div class="col-md-3">
+                        <textarea type="text" placeholder="Additional Contact" formControlName="additionalContact"
+                            class="form-control "></textarea>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+       
+        <div class="card mt-2">
+            <div class="card-header">
+                Address
+            </div>
+            <div class="card-body ">
+
+                <div class="row my-1">
+                    <div class="col-md-3"*ngIf="!inputBox">
+                        <input type="text"   formControlName="companyRegion"(focus)='inputBox=true' 
+                            placeholder="Region" class="form-control ">
+                            </div>
+                            <div class="col-md-3"*ngIf="inputBox">
+
+                        <select  type="text" placeholder="Region" (click)="onDropdownChange()"  (change)="onRegionChange($event.target.value)"
+                            formControlName="companyRegion" class="form-control">
+                            <option [value]="null" selected hidden disabled>Select region</option>
+                            <option *ngFor="let region of regionList"  [value]="region">{{ region }}</option>
+
+                        </select>
+                        <div *ngIf="submit && f.companyRegion.errors" class="text-danger">
+                            <div *ngIf="f.companyRegion.errors.required"><i>*Region is required!</i></div>
+                        </div>
+                    </div>
+                    <div class="col-md-3"*ngIf="!dropdown">
+                        <input  type="text" placeholder="Territory" formControlName="companyTerritory"
+                             class="form-control "  >
+                           </div> 
+                           <div class="col-md-3"*ngIf="dropdown">
+                        <select  type="text" placeholder="Territory Name"
+                            formControlName="companyTerritory" class="form-control " disabled>
+                            <option value="" selected hidden disabled>Select territory</option>
+                            <option *ngFor="let territory of territoryList" [value]="territory" >{{ territory }}</option>
+                        </select>
+                        <div *ngIf="submit && f.companyTerritory.errors" class="text-danger">
+                            <div *ngIf="f.companyTerritory.errors.required"><i>*Territory is required!</i></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row my-1">
+                    <div class="col-md-3"> -->
+                        <!-- <input type="text" placeholder="State" formControlName="companyState" class="form-control "> -->
+                        <!-- <select id="st" placeholder="State" formControlName="companyState" class="form-control"
+                            (change)="getDistrictList()">
+                            <option value="" selected hidden disabled>Select State
+                            </option>
+                            <option *ngFor="let i of stateList" value="{{i.state}}">
+                                {{i.state}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <input *ngIf="inputBoxDis" type="text" placeholder="District" formControlName="companyDistrict"
+                            class="form-control ">
+                        <select *ngIf="dropDown" placeholder="District" formControlName="companyDistrict"
+                            class="form-control">
+                            <option value="" selected hidden disabled>Select District</option>
+                            <option *ngFor="let i of districtList" value="{{i.district}}">
+                                {{i.district}}</option>
+                        </select>
+                    </div> -->
+                <!-- </div> -->
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <textarea type="text" placeholder="Address" formControlName="companyAddress"
+                            class="form-control "></textarea>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+        
+      
+        <div class="card-footer text-center">
+            <button class="btn btn-success" (click)="onSubmit()">Save</button>
+            &nbsp;
+            <button class="btn btn-secondary " (click)="onBack()">Back</button>
+        </div>
+    </form>
+    <!-- <div class="card mt-2">
+        <div class="card-header">
+            Activities
+        </div>
+        <div class="card-body ">
+            <form>
+                <div class="row my-1">
+                    <div class="col-md-3">
+                        <input type="text" placeholder="Region" class="form-control ">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" placeholder="Territory" class="form-control ">
+                    </div>
+                </div>
+                <div class="row my-1">
+                    <div class="col-md-3">
+                        <input type="text" placeholder="State" class="form-control ">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" placeholder="District" class="form-control ">
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <textarea type="text" placeholder="Address" class="form-control "></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-success  ">Edit</button>
+
+                        &nbsp;
+
+                        <button class="btn btn-warning ">Add Activity</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div> -->
+
+
+    <!-- <div class="card mt-2">
+        <div class="card-header">
+            Activity
+            <button class="btn btn-warning float-end" (click)="open(exampleModalCenter)">Add Activity</button>
+
+        </div>
+        <div class="card-body " id="t">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-nowrap">Activity Date</th>
+                        <th class="text-nowrap">Status</th>
+                        <th class="text-nowrap">Next Action Date</th>
+                        <th class="text-nowrap">Notes</th>
+                        <th class="text-nowrap">Activity By</th>
+                      
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>11-10-2023</td>
+                        <td>Meet</td>
+                        <td>12-04-2023</td>
+                        <td>sales accepted</td>
+                        <td>gopi </td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+            <div class="card-body ">
+                <div class="row">
+                    <p class="text-center"><b>No Activities Found</b></p>
+                </div>
+            </div>
+
+        
+
+        </div>
+
+    </div> -->
+
+
+
+</div>
+
+<!-- <ng-template #exampleModalCenter let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Activity</h4>
+    </div>
+    <div class="modal-body lg">
+        <div class="row">
+            <div class="col">
+                <input type="text" placeholder="status" class="form-control">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Next action date">
+            </div>
+            <div class="col">
+                <textarea type="text" class="form-control" placeholder="Notes"></textarea>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger footBtn" (click)="d('Cross click')">Cancel</button>
+        <button type="button" class="btn btn-primary footBtn">Add</button>
+    </div>
+
+
+
+</ng-template> -->

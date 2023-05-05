@@ -1,0 +1,83 @@
+<div class="container" >
+    <div class="header">
+        <form [formGroup]="fromTo" *ngIf="weeklyReportView.length >0">
+            <div class="row" style="justify-content: center;text-align: center;" >
+               
+                <div class="col-md-12">
+                    <span>{{weeklyReportView[0]?.reportStartDate |date}}</span> &nbsp;  to &nbsp; <span>{{weeklyReportView[0]?.reportEndDate |date}}</span> 
+                    <!-- <input type="text" class="form-control" readonly placeholder="From" formControlName="planStartDate"[value]="fromTo.get('planStartDate').value|date"> -->
+                </div>
+               
+                
+            </div>
+    </form>
+        <div class="middle mt-2">
+            <div class="card">
+                <div class="card-header">Weekly Report</div>
+                <div class="card-body ">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Company Name</th>
+                                <th>Status</th>
+                                <th>Next Action Date</th>
+                                <th style="text-align: left;">Notes</th>
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="j">
+                            <tr *ngFor="let item of
+                                weeklyReportView;index as i"[ngClass]="{'weeklyPlan':item.inWeeklyPlan
+                                &&
+                                item.newActivity,'inActivity':!item.inWeeklyPlan
+                                &&
+                                item.newActivity,'notActivity':item.inWeeklyPlan
+                                && !item.newActivity}">
+                                <td>{{i+1}}</td>
+                                <td>{{item.companyName}}</td>
+                                <td>{{item.actStatus===null?'N/A':item.actStatus===''?'N/A':item.actStatus}}</td>
+                                <td>{{item.nextActDate===null?'N/A':item.nextActDate===''?'N/A':item.nextActDate| date}}</td>
+                                <td style="text-align: left;   width: 300px;
+                                word-wrap: break-word;">{{item.notes===null?'N/A':item.notes===''?'N/A':item.notes}}</td>
+                                <td><button
+                                        class="btn btn-outline-info btn-shadow
+                                        btn-pad text-right d-inline-flex
+                                        align-items-center" target="_blank"
+                                        (click)="customerView(item.customerID)"><mat-icon>remove_red_eye</mat-icon></button>
+                                    <!-- &nbsp; <button class="btn btn-warning">Add activity</button> -->
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+     <form [formGroup]="comment" >
+        <div class="row">
+            <div class="col m-2" *ngIf="userIsAdmin">
+                <textarea name="" id="" placeholder="Comments"
+                formControlName="saveComment" class="form-control" cols="100" rows="4"></textarea>
+            </div>
+            
+        </div>
+    
+
+        <div class="card-footer text-center"*ngIf="userIsAdmin">
+            <button class="btn btn-success" (click)="savecomment()">Save</button>
+            &nbsp;
+            <button class="btn btn-secondary" (click)="onBack()">Back</button>
+        </div>
+        <div class="card-footer text-center"*ngIf="!userIsAdmin">
+         
+            <button class="btn btn-secondary" (click)="onBack()">Back</button>
+        </div>
+    </form>
+    </div>
+</div>

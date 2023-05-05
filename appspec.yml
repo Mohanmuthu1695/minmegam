@@ -1,0 +1,11 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/html/minmegamsales/user
+    file_exists_behavior: OVERWRITE
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ec2-user
+    group: apache

@@ -1,0 +1,230 @@
+<!-- <div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 .bg-light border-right shadow">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-dark min-vh-100">
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <nav class="navbar navbar-light">
+                        <ul class="navbar-brand" href="#">Menu</ul>
+                    </nav> 
+                                Region
+                            </a>
+                        </ul>
+                    </nav>
+                    <nav class="navbar navbar-light">
+                        <ul> <a class="navbar-brand" routerLink="/people-list">
+                                People
+                            </a>
+                        </ul>
+                    </nav>
+                </ul>
+                <hr>
+            </div>
+        </div>
+        <div class="col py-3">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div> -->
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light shadow border-right">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-1 pt-2 text-white min-vh-100">
+                <li class="navbar navbar-light">
+                    <a class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                        <span class="fs-5 d-none d-sm-inline ml-5">  <div >
+                  
+                     
+                            <img src="https://images-minmegamweb.s3.ap-south-1.amazonaws.com/minmegam/minmegam/minmegam-logo.png"alt = "minmegam" style="width: 100%;"/>
+                   
+                  </div></span>
+                    </a>
+                </li>
+                
+                <div *ngIf="admin">
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                        id="menu">
+                        <li class="navbar navbar-light">
+                            <img type="image/x-icon" src="favicon.ico" alt="logo" class="logo">  
+                        </li>
+                        <li class="navbar navbar-light">
+                            <a routerLink="/region-list" class="navbar-brand">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon ">area_chart</mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">Region</span>
+                            </a>
+                        </li>
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/people-list">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon ">group_remove</mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">People</span></a>
+                        </li>
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/customer-list">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon ">handshake</mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">Customer</span>
+                            </a>
+                        </li>
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/sales-activity">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon ">business_center</mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">Sales Activity</span>
+                            </a>
+                        </li>
+                        <!-- <li class="navbar navbar-light">
+                        <a class="navbar-brand" routerLink="/weekly-plan">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon ">event</mat-icon>
+                            <span class="ms-1 d-none d-sm-inline">Weekly Plan</span>
+                        </a>
+                    </li> -->
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/recommendation-list">
+
+                                <mat-icon aria-hidden="false"
+                                    aria-label="Example home icon "[ngClass]="{'i':recommendPlan.length>0}">notifications_active</mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">Recommendation</span>
+                            </a>
+                        </li>
+
+
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/week-plan-list">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon ">event</mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">Weekly plan</span>
+                            </a>
+                        </li>
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/week-report-list">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon "><span
+                                        class="material-symbols-outlined">
+                                        file_copy
+                                    </span></mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">Weekly report</span>
+                            </a>
+                        </li>
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon "><span
+                                        class="material-symbols-outlined">
+                                        logout
+                                    </span></mat-icon>
+                                <span class="ms-1 d-none d-sm-inline" (click)="logout()">Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div *ngIf="it">
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                        id="menu">
+
+                        <li class="navbar navbar-light">
+                            <img type="image/x-icon" src="favicon.ico" alt="logo" class="logo">  
+                        </li>
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/customer-list">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon ">handshake</mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">Customer</span>
+                            </a>
+                        </li>
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/sales-activity">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon ">business_center</mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">Sales Activity</span>
+                            </a>
+                        </li>
+                        <!-- <li class="navbar navbar-light">
+                    <a class="navbar-brand" routerLink="/weekly-plan">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon ">event</mat-icon>
+                        <span class="ms-1 d-none d-sm-inline">Weekly Plan</span>
+                    </a>
+                </li> -->
+
+
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/week-plan-list">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon ">event</mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">Weekly plan</span>
+                            </a>
+                        </li>
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/week-report-list">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon ">file_copy</mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">Weekly report</span>
+                            </a>
+                        </li>
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon "><span
+                                        class="material-symbols-outlined">
+                                        logout
+                                    </span></mat-icon>
+                                <span class="ms-1 d-none d-sm-inline" (click)="logout()">Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div *ngIf="sales">
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                        id="menu">
+                        <li class="navbar navbar-light">
+                            <img type="image/x-icon" src="favicon.ico" alt="logo" class="logo">  
+                        </li>
+
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/customer-list">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon ">handshake</mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">Customer</span>
+                            </a>
+                        </li>
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/sales-activity">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon ">business_center</mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">Sales Activity</span>
+                            </a>
+                        </li>
+                        <!-- <li class="navbar navbar-light">
+                    <a class="navbar-brand" routerLink="/weekly-plan">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon ">event</mat-icon>
+                        <span class="ms-1 d-none d-sm-inline">Weekly Plan</span>
+                    </a>
+                </li> -->
+                        <li class="navbar navbar-light ring">
+                            <a class="navbar-brand" routerLink="/recommendation-list">
+                                <mat-icon aria-hidden="false" [ngClass]="{'i':recommendPlan.length>0}"
+                                    aria-label="Example home icon ">notifications_active</mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">Recommendation</span>
+                            </a>
+                        </li>
+
+
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/week-plan-list">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon ">event</mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">Weekly plan</span>
+                            </a>
+                        </li>
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/week-report-list">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon ">file_copy</mat-icon>
+                                <span class="ms-1 d-none d-sm-inline">Weekly report</span>
+                            </a>
+                        </li>
+                        <li class="navbar navbar-light">
+                            <a class="navbar-brand" routerLink="/">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon "><span
+                                        class="material-symbols-outlined">
+                                        logout
+                                    </span></mat-icon>
+                                <span class="ms-1 d-none d-sm-inline" (click)="logout()">Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="col p-0">
+            <app-header></app-header>
+
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

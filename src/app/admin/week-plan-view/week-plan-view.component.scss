@@ -1,0 +1,35 @@
+.card-header {
+  background: #2c9ee2;
+  color: #fff;
+}
+.j {
+  overflow: auto;
+}
+.container {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 753px) {
+  // .card-body {
+  //   flex: 1 1 auto;
+  //   padding: 1rem 1rem;
+  // }
+  .td {
+    display: flex;
+  }
+  .middle {
+    button {
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  th {
+    white-space: nowrap;
+  }
+}
+td,th{
+  text-align: center;
+}

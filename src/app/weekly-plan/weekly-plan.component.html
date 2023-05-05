@@ -1,0 +1,1036 @@
+<div class="container mt-2 show1">
+    <div class="card">
+        <div class="card-header">Weekly Plan</div>
+    </div>
+
+
+    <div class="card ">
+        <div class="card-body">
+            <div class="form1">
+                <form [formGroup]="filter1" (ngSubmit)="onSubmit()"
+                    #form1="ngForm" autocomplete="off">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <select type="text" placeholder="Industry Type"
+                                formControlName="industryType"
+                                name="industryType"
+                                class="form-control "
+                                [ngClass]="{'is-invalid':
+                                isInvalid('industryType')}">
+                                <option [value]="null" disabled hidden selected>Industry</option>
+                                <option *ngFor="let industryType of getindustry">{{
+                                    industryType.industryType }}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select type="text" placeholder="Region"
+                                formControlName="region" name="region"
+                                id="region"
+                                class="form-control " [ngClass]="{'is-invalid':
+                                isInvalid('region')}"
+                                (change)="onRegionChange($event.target.value)">
+                                <option [value]="null" selected disabled hidden>Select
+                                    Region </option>
+                                <option *ngFor="let region of regionList"
+                                    [value]="region">{{ region }}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select type="text" placeholder="Territory"
+                                formControlName="territory" name="territory"
+                                id="territory"
+                                class="form-control " [ngClass]="{'is-invalid':
+                                isInvalid('territory')}">
+                                <option value="" selected disabled hidden>Select
+                                    Territory </option>
+                                <option *ngFor="let territory of territoryList"
+                                    [value]="territory">{{ territory }}</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-2 buttons">
+
+
+                            <button type="submit" class="btn btn-primary"
+                                [disabled]="filter1.invalid">Search</button>
+                        </div>
+                        <div class="col-md-2 buttons">
+
+
+
+                            <button type="button" (click)="resetForm1()"
+                                class="btn
+                                btn-danger">Clear</button>
+
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+
+            <br>
+            <div class="form2">
+                <form [formGroup]="filter2" (ngSubmit)="onSubmit2()"
+                    #form2="ngForm" autocomplete="off">
+                    <div class="row">
+
+                        <!-- <div class="col-md-4">
+                             <input type="text" placeholder="lastUpdatedDate"
+                                 
+                                class="form-control "
+                               disabled> -->
+                        <!-- <p>Last Updated Date:</p>
+
+
+                        </div> -->
+                        <div class="col-md-4">
+                            <input type="text" placeholder="Last Activity Date:From-To"
+                                formControlName="range" name="range"
+                                class="form-control second2"
+                                [ngClass]="{'is-invalid':
+                                isInvalid2('range')}" [bsConfig]="{
+                                rangeInputFormat : 'MMMM Do YYYY',
+                                dateInputFormat:
+                                'MMMM Do YYYY'}" bsDaterangepicker>
+                            <!-- <span class="text-danger"
+                            *ngIf="(filter2Control.fromTo.touched || submitted2)
+                            && filter2Control.fromTo.errors?.required">
+                            *Industry Type Required....!
+                        </span> -->
+                        </div>
+                        <div class="col-md-2">
+                            <select type="text" placeholder="Status"
+                                formControlName="status" name="status"
+                                class="form-control second3"
+                                [ngClass]="{'is-invalid':
+                                isInvalid2('status')}">
+                                <option [value]="null" disabled selected hidden>status</option>
+                                <option value="ALL" >All</option>
+                                <option *ngFor="let status of getstatus">{{status.status}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select type="text" placeholder="Territory"
+                                formControlName="territory" name="territory"
+                                class="form-control " [ngClass]="{'is-invalid':
+                                isInvalid2('territory')}">
+
+                                <option [ngValue]="null" selected disabled
+                                    hidden> Select Territory </option>
+                                <option *ngFor="let territory of
+                                    getUniqueTerritories()" [value]="territory">{{
+                                    territory }}</option>
+                            </select>
+                            <!-- <span class="text-danger"
+                                *ngIf="(filter2Control.territory.touched ||
+                                submitted2) &&
+                                filter2Control.territory.errors?.required">
+                                *Industry Type Required....!
+                            </span> -->
+                        </div>
+                        <div class="col-md-2 buttons">
+
+
+                            <button type="submit" class="btn btn-primary"
+                                [disabled]="filter2.invalid">Search</button>
+                        </div>
+                        <div class="col-md-2 buttons">
+
+
+
+                            <button type="button" (click)="resetForm2()"
+                                class="btn
+                                btn-danger">Clear</button>
+
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+            <br>
+            <div class="form3">
+                <form [formGroup]="filter3" (ngSubmit)="onSubmit3()"
+                    #form3="ngForm" autocomplete="off">
+                    <div class="row">
+                        <!-- <div class="col-md-2"> -->
+                        <!-- <input type="text" placeholder="Next Action Date"
+                              
+                                class="form-control " disabled > -->
+                        <!-- <p>Next Action Date:</p> -->
+
+
+                        <!-- </div> -->
+                        <div class="col-md-4">
+
+                            <input type="text" placeholder="Next Action Date: From-To"
+                                formControlName="range" name="range"
+                                class="form-control third2"
+                                [ngClass]="{'is-invalid':
+                                isInvalid3('range')}" [bsConfig]="{
+                                rangeInputFormat : 'MMMM Do YYYY',
+                                dateInputFormat:
+                                'MMMM Do YYYY'}" bsDaterangepicker>
+
+                            <!-- <span class="text-danger"romTo
+                                *ngIf="(filter3Control.fromTo.touched || submitted3)
+                                && filter3Control.fromTo.errors?.required">
+                                *Industry Type Required....!
+                            </span> -->
+                        </div>
+                        <div class="col-md-2">
+                            <select type="text" placeholder="Status"
+                                formControlName="status" name="status"
+                                class="form-control third3" list="status"
+                                [ngClass]="{'is-invalid':
+                                isInvalid3('status')}">
+                                <option [value]="null" disabled hidden selected>status</option>
+                                <option value="ALL" >All</option>
+                                <option *ngFor="let status of getstatus">{{status.status}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 buttons">
+
+
+                            <button type="submit" class="btn btn-primary"
+                                [disabled]="filter3.invalid"
+                                (click)="onSubmit3()">Search</button>
+                        </div>
+                        <div class="col-md-2 buttons">
+
+
+
+                            <button type="button" (click)="resetForm3()"
+                                class="btn
+                                btn-danger">Clear</button>
+
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+            <br>
+            <div class="form4">
+                <form [formGroup]="filter4" (ngSubmit)="onSubmit4()"
+                    #form4="ngForm" autocomplete="off">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <input type="text" [(ngModel)]="searchText1"
+                                (focus)="onInputClick()"
+                                (input)="filterCompany()" placeholder="Company
+                                Name"
+                                formControlName="companyName" name="companyName"
+                                class="form-control " list="companyName"
+                                [ngClass]="{'is-invalid':
+                                isInvalid4('companyName')}">
+                            <datalist id="companyName">
+                                <option *ngFor="let companyName of
+                                    filteredCompanyList">{{ companyName }}</option>
+                            </datalist>
+                           
+                        </div>
+
+
+                        <div class="col-md-2 buttons">
+
+
+                            <button type="submit" class="btn btn-primary"
+                                [disabled]="filter4.invalid">Search</button>
+                        </div>
+                        <div class="col-md-2 buttons">
+
+
+
+                            <button type="button" class="btn btn-danger"
+                                (click)="resetForm4()">Clear</button>
+
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+</div>
+
+<!-- for responsive screen size -->
+<div class="container mt-2 show2">
+    <div class="card">
+        <div class="card-header">Weekly Plan</div>
+    </div>
+    <div class="card-footer text-center">
+        <div class="radio">
+            <div class="radioHover"><input type="radio" name="form"
+                    (change)="selectedForm='form1'" checked="checked"
+                    class="radio1"><label class="label1">Filter-1</label></div>
+            <div class="radioHover"><input type="radio" name="form"
+                    (change)="selectedForm='form2'" class="radio1"><label
+                    class="label1">Filter-2</label></div>
+            <div class="radioHover"><input type="radio" name="form"
+                    (change)="selectedForm='form3'" class="radio1"><label
+                    class="label1">Filter-3</label></div>
+            <div class="radioHover"><input type="radio" name="form"
+                    (change)="selectedForm='form4'" class="radio1"><label
+                    class="label1">Filter-4</label></div>
+        </div>
+    </div>
+    <div class="card ">
+        <div class="card-body">
+            <div class="form1">
+                <div *ngIf="selectedForm === 'form1'">
+                    <form [formGroup]="filter1" (ngSubmit)="onSubmit()"
+                        #form1="ngForm" autocomplete="off">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <select type="text" placeholder="Industry Type"
+                                    formControlName="industryType"
+                                    name="industryType"
+                                    class="form-control "
+                                    [ngClass]="{'is-invalid':
+                                    isInvalid('industryType')}">
+
+                                    <option [value]="null" disabled hidden
+                                        selected>Industry</option>
+                                    <option *ngFor="let industryType of
+                                        getindustry">{{
+                                        industryType.industryType }}</option>
+                                </select>
+                                <span class="text-danger"
+                                    *ngIf="(filter1Control.industryType.touched
+                                    ||
+                                    submitted1) &&
+                                    filter1Control.industryType.errors?.required">
+                                    *Industry Type Required....!
+                                </span>
+                            </div>
+                            <div class="col-md-2">
+                                <select type="text" placeholder="Region"
+                                    formControlName="region" name="region"
+                                    id="region"
+                                    class="form-control "
+                                    [ngClass]="{'is-invalid':
+                                    isInvalid('region')}"
+                                    (change)="onRegionChange($event.target.value)">
+                                    <option value="" [value]="null" selected
+                                        disabled hidden> Select Region </option>
+                                    <option *ngFor="let region of regionList">{{
+                                        region }}</option>
+                                </select>
+                                <span class="text-danger"
+                                    *ngIf="(filter1Control.region.touched ||
+                                    submitted1)
+                                    && filter1Control.region.errors?.required">
+                                    *Region Required....!
+                                </span>
+                            </div>
+                            <div class="col-md-2">
+                                <select type="text" placeholder="Territory"
+                                    formControlName="territory" name="territory"
+                                    id="territory"
+                                    class="form-control "
+                                    [ngClass]="{'is-invalid':
+                                    isInvalid('territory')}">
+                                    <option value='' selected disabled hidden>
+                                        Select Territory </option>
+                                    <option *ngFor="let territory of
+                                        territoryList" [value]="territory">{{
+                                        territory }}</option>
+                                </select>
+                                <span class="text-danger"
+                                    *ngIf="(filter1Control.territory.touched ||
+                                    submitted1) &&
+                                    filter1Control.territory.errors?.required">
+                                    *Territory Required....!
+                                </span>
+                            </div>
+
+                            <div class="col-md-2 buttons">
+
+
+                                <button type="submit" class="btn btn-primary"
+                                    [disabled]="filter1.invalid">Search</button>
+                            </div>
+                            <div class="col-md-2 buttons">
+
+
+
+                                <button type="button" (click)="resetForm1()"
+                                    class="btn
+                                    btn-danger">Clear</button>
+
+                            </div>
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- <br> -->
+            <div class="form2">
+                <div *ngIf="selectedForm === 'form2'">
+                    <form [formGroup]="filter2" (ngSubmit)="onSubmit2()"
+                        #form2="ngForm" autocomplete="off">
+                        <div class="row">
+
+                            <!-- <div class="col-md-2">
+                               <input type="text"
+                                    placeholder="Last Action Date"
+                                    class="form-control second1"
+                                    disabled> -->
+                            <!-- <p>Last Action Date:</p>
+
+                            </div> -->
+                            <div class="col-md-4">
+                                <input type="text"
+                                    placeholder="Last Activity Date: From-To"
+                                    class="form-control second2"
+                                    [ngClass]="{'is-invalid':
+                                    isInvalid2('range')}"
+                                    formControlName="range" name="range"
+                                    [bsConfig]="{ rangeInputFormat : 'MMMM Do YYYY',
+                                    dateInputFormat: 'MMMM Do YYYY'}"
+                                    bsDaterangepicker>
+                                <span class="text-danger"
+                                    *ngIf="(filter2Control.range.touched ||
+                                    submitted2)
+                                    && filter2Control.range.errors?.required">
+                                    *Last Action Date Required....!
+                                </span>
+                            </div>
+                            <div class="col-md-2">
+                                <select type="text" placeholder="Status"
+                                    formControlName="status" name="status"
+                                    class="form-control second3"
+                                    [ngClass]="{'is-invalid':
+                                    isInvalid2('status')}">
+                                    <option [value]="null" disabled selected
+                                        hidden>status</option>
+                                        <option value="ALL" >All</option>
+                                    <option *ngFor="let status of getstatus">{{status?.status}}</option>
+                                </select>
+                                <span class="text-danger"
+                                    *ngIf="(filter2Control.status.touched ||
+                                    submitted2)
+                                    && filter2Control.status.errors?.required">
+                                    *Status Required....!
+                                </span>
+                            </div>
+                            <div class="col-md-2">
+                                <select type="text" placeholder="Territory"
+                                    formControlName="territory" name="territory"
+                                    class="form-control second4"
+                                    [ngClass]="{'is-invalid':
+                                    isInvalid2('territory')}">
+
+                                    <option [ngValue]="null" selected disabled
+                                        hidden>Select Territory</option>
+                                    <option *ngFor="let territory of
+                                        getUniqueTerritories()"
+                                        [value]="territory">{{ territory }}</option>
+                                </select>
+                                <span class="text-danger"
+                                    *ngIf="(filter2Control.territory.touched ||
+                                    submitted2) &&
+                                    filter2Control.territory.errors?.required">
+                                    *Territory Required....!
+                                </span>
+                            </div>
+                            <div class="col-md-2 buttons">
+
+
+                                <button type="submit" class="btn btn-primary"
+                                    [disabled]="filter2.invalid">Search</button>
+                            </div>
+                            <div class="col-md-2 buttons">
+
+
+
+                                <button type="button" (click)="resetForm2()"
+                                    class="btn
+                                    btn-danger">Clear</button>
+
+                            </div>
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- <br> -->
+            <div class="form3">
+                <div *ngIf="selectedForm === 'form3'">
+                    <form [formGroup]="filter3" (ngSubmit)="onSubmit3()"
+                        #form3="ngForm" autocomplete="off">
+                        <div class="row">
+
+                            <!-- <div class="col-md-2"> -->
+                            <!-- <input type="text"
+                                    placeholder="Next Action Date"
+                                    class="form-control third1"
+                                   disabled> -->
+                            <!-- <p>Next Action Date:</p> -->
+
+                            <!-- </div> -->
+                            <div class="col-md-4">
+                                <input type="text"
+                                    placeholder="Next Action Date: From-To"
+                                    class="form-control third2"
+                                    [ngClass]="{'is-invalid':
+                                    isInvalid3('range')}"
+                                    formControlName="range" name="range"
+                                    [bsConfig]="{ rangeInputFormat : 'MMMM Do YYYY',
+                                    dateInputFormat: 'MMMM Do YYYY'}"
+                                    bsDaterangepicker>
+                                <span class="text-danger"
+                                    *ngIf="(filter3Control.range.touched ||
+                                    submitted3)
+                                    && filter3Control.range.errors?.required">
+                                    *Next Action Date Required....!
+                                </span>
+                            </div>
+                            <div class="col-md-2">
+                                <select type="text" placeholder="Status"
+                                    formControlName="status" name="status"
+                                    class="form-control third3" list="status"
+                                    [ngClass]="{'is-invalid':
+                                    isInvalid3('status')}">
+                                    <option [value]="null" disabled hidden
+                                        selected>status</option>
+                                        <option value="ALL" >All</option>
+
+                                    <option *ngFor="let status of getstatus">{{status.status}}</option>
+                                </select>
+                                <span class="text-danger"
+                                    *ngIf="(filter3Control.status.touched ||
+                                    submitted3)
+                                    && filter3Control.status.errors?.required">
+                                    *Status Required....!
+                                </span>
+                            </div>
+                            <div class="col-md-2 buttons">
+
+
+                                <button type="submit" class="btn btn-primary"
+                                    [disabled]="filter3.invalid">Search</button>
+                            </div>
+                            <div class="col-md-2 buttons">
+
+
+
+                                <button type="button" (click)="resetForm3()"
+                                    class="btn
+                                    btn-danger">Clear</button>
+
+                            </div>
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- <br> -->
+            <div class="form4">
+                <div *ngIf="selectedForm === 'form4'">
+                    <form [formGroup]="filter4" (ngSubmit)="onSubmit4()"
+                        #form4="ngForm" autocomplete="off"
+                        [ngClass]="{'is-invalid': isInvalid4('companyName')}">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input type="text" placeholder="Company Name"
+                                    formControlName="companyName"
+                                    name="companyName"
+                                    class="form-control last" list="companyName"
+                                    (focus)="onInputClick()"
+                                    [(ngModel)]="searchText1"
+                                    (input)="filterCompany()">
+                                <datalist id="companyName">
+                                    <option *ngFor="let companyName of
+                                        filteredCompanyList">{{ companyName }}</option>
+                                </datalist>
+                                <span class="text-danger"
+                                    *ngIf="(filter4Control.companyName.touched
+                                    ||
+                                    submitted4) &&
+                                    filter4Control.companyName.errors?.required">
+                                    *Company Name Required....!
+                                </span>
+                            </div>
+
+
+                            <div class="col-md-2 buttons">
+
+
+                                <button type="submit" class="btn btn-primary"
+                                    [disabled]="filter4.invalid">Search</button>
+                            </div>
+                            <div class="col-md-2 buttons">
+
+
+
+                                <button type="button" class="btn btn-danger"
+                                    (click)="resetForm4()">Clear</button>
+
+                            </div>
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="container mt-2 " id="showtable1" #recommendation>
+    <div class="row">
+        <div class="col-6" *ngIf="recommendPlan.length>0;else
+            noRecommendations">
+
+            <div class="card">
+                <div class="card-header">Recommendation</div>
+            </div>
+            <div class="card ">
+                <div class="card-body scroll">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Company Name</th>
+
+                                <th>Status</th>
+
+
+                                <th>Next Action Date</th>
+                                <th>Actions</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of recommendPlan | paginate
+                                : {
+                                itemsPerPage: 5,
+                                currentPage: pageIndex,
+                                totalItems:allCount,id:'p'
+                                } ;index
+                                as i "
+                                id="t1">
+                                <td>{{i+ind}}</td>
+
+                                <td>{{ item.companyName}}</td>
+
+                                <td>{{ item.actStatus| titlecase }}</td>
+
+
+                                <td>{{ item.nextActDate | date: 'dd-MM-yyyy'
+                                    }}</td>
+                                <td>
+
+
+                                    <button id="but"
+                                        class="btn btn-outline-info btn-shadow
+                                        btn-pad
+                                        text-right d-inline-flex
+                                        align-items-center"
+                                        (click)="customerView(item.customerID)"
+                                        target="_blank"><mat-icon>remove_red_eye</mat-icon></button>
+                                    <button type="submit" class="btn btn-warning
+                                        add" (click)="selectRow(item)"
+                                        [disabled]="item.isCopied">{{
+                                        getButtonLabel(item) }}</button>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <pagination-controls (pageChange)="pageChange($event)" id="p"></pagination-controls>
+            </div>
+        </div>
+        <ng-template #noRecommendations>
+            <div class="col-6">
+
+                <div class="card">
+                    <div class="card-header">Recommendation</div>
+                </div>
+                <div class="card ">
+                    <div class="card-body " style="text-align:
+                        center; font-weight: 600;">
+                        <p>No Recommendations to show!</p>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <div class="col-6"> <div class="card">
+                <div class="card-header">Customer List</div>
+            </div>
+            <div class="card ">
+                <div class="card-body scroll">
+                    <table class="table" *ngIf="respData?.length>
+                        0;"[hidden]="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Company Name</th>
+
+                                <th>Status</th>
+
+
+                                <th>Next Action Date</th>
+                                <th>Actions</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of respData | paginate: {
+                                itemsPerPage: 5, currentPage: pageIndex1,
+                                totalItems: allCount1,id:'p2' }
+                                ;index as i
+                                ">
+                                <td>{{i+ind1}}</td>
+
+                                <td>{{ item.companyName }}</td>
+
+                                <td>{{ item.actStatus === null ?'N/A':item.actStatus| titlecase }}</td>
+
+
+                                <td>{{ item.nextActDate === '0000-00-00 00:00:00' ? 'N/A':item.nextActDate === null   ? 'N/A' : item.nextActDate | date:
+                                    'dd-MM-yyyy' }}</td>
+                                <td>
+
+
+                                    <button id="but"
+                                        class="btn btn-outline-info btn-shadow btn-pad text-right d-inline-flex align-items-center"
+                                        (click)="customerView(item.customerID)"
+                                        target="_blank"><mat-icon>remove_red_eye</mat-icon></button>
+                                    <button type="submit" class="btn btn-warning
+                                        add"(click)="selectRow(item)"
+                                        [disabled]="item.isCopied">{{
+                                        getButtonLabel(item) }}</button>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div #searchCsutomer [hidden]="searchCus" style="text-align:center; font-weight: 600;">
+                        <p>Search to View customer...</p>
+                    </div>
+                    <div *ngIf="noDataFound">
+                        No data available...!
+                    </div>
+                </div>
+
+
+                <pagination-controls [hidden]="paginator"
+                    id='p2'(pageChange)="pageChange1($event)" *ngIf="paginator1"></pagination-controls>
+                <pagination-controls [hidden]="paginator"
+                    id='p2'(pageChange)="pageChange2($event)"
+                    *ngIf="paginator2"></pagination-controls>
+                <pagination-controls [hidden]="paginator"
+                    id='p2'(pageChange)="pageChange3($event)"
+                    *ngIf="paginator3"></pagination-controls>
+                <pagination-controls [hidden]="paginator"
+                    id='p2'(pageChange)="pageChange4($event)"
+                    *ngIf="paginator4"></pagination-controls>
+            </div></div>
+    </div>
+
+</div>
+<!-- pixel under 950 -->
+<div id="showtable2">
+
+
+    <div class="container mt-2 ">
+
+        <div class="col-12" id="table1" *ngIf="selectedTable === 'table1'">
+
+            <div class="forRadio">
+                <input type="radio" name="tabs" id="tab1"
+                    (change)="selectedTable='table2'"/>
+                <label for="tab1">Recommendation</label>
+                <input type="radio" name="tabs" id="tab2"
+                    checked="checked"(change)="selectedTable='table1'" />
+                <label for="tab2">Customer List</label>
+
+
+            </div>
+            <div class="card ">
+                <div class="card-body scroll">
+                    <table class="table" *ngIf="respData?.length>
+                        0;"[hidden]="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Company Name</th>
+
+                                <th>Status</th>
+
+
+                                <th>Next Action Date</th>
+                                <th>Actions</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of respData | paginate: {
+                                itemsPerPage: 5, currentPage: pageIndex1,
+                                totalItems: allCount1,id:'p3' }
+                                ;index as i
+                                ">
+                                <td>{{i+ind1}}</td>
+
+                                <td>{{ item.companyName }}</td>
+
+                                <td>{{ item.actStatus===null ?'N/A':item.actStatus | titlecase}}</td>
+
+
+                                <td>{{ item.nextActDate===null? 'N/A':item.nextActDate| date: 'dd-MM-yyyy'
+                                    }}</td>
+                                    <td>
+
+
+                                        <button id="but"
+                                            class="btn btn-outline-info
+                                            btn-shadow
+                                            btn-pad
+                                            text-right d-inline-flex
+                                            align-items-center"
+                                            (click)="customerView(item.customerID)"
+                                            target="_blank"><mat-icon>remove_red_eye</mat-icon></button>
+                                        <button type="submit" class="btn
+                                            btn-warning
+                                            add"
+                                            (click)="selectRow(item)"
+                                            [disabled]="item.isCopied">{{
+                                            getButtonLabel(item) }}</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                    </table>
+                        <div #searchCsutomer [hidden]="searchCus"
+                            style="text-align:
+                            center; font-weight: 600;">
+                            <p>Search to View customer...</p>
+                        </div>
+                        <div *ngIf="noDataFound">
+                            No data available...!
+                        </div>
+
+                </div>
+
+
+                    <pagination-controls id="p3"[hidden]="paginator"
+                        id='p2'(pageChange)="pageChange1($event)"
+                        *ngIf="paginator1"></pagination-controls>
+                    <pagination-controls id="p3"[hidden]="paginator"
+                        id='p2'(pageChange)="pageChange2($event)"
+                        *ngIf="paginator2"></pagination-controls>
+                    <pagination-controls id="p3"[hidden]="paginator"
+                        id='p2'(pageChange)="pageChange3($event)"
+                        *ngIf="paginator3"></pagination-controls>
+                    <pagination-controls id="p3"[hidden]="paginator"
+                        id='p2'(pageChange)="pageChange4($event)"
+                        *ngIf="paginator4"></pagination-controls>
+                </div>
+            </div>
+            <div class="col-12" id="table2" *ngIf="selectedTable === 'table2'">
+                <div class="forRadio">
+                    <input type="radio" name="tabs" id="tab1"
+                        checked="checked"(change)="selectedTable='table2'" />
+                    <label for="tab1">Recommendation</label>
+                    <input type="radio" name="tabs" id="tab2"
+                        (change)="selectedTable='table1'"/>
+                    <label for="tab2">Customer List</label>
+
+
+                </div>
+                <div class="card "*ngIf="recommendPlan.length>0;else noPlan">
+                    <div class="card-body scroll">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Company Name</th>
+
+                                    <th>Status</th>
+
+
+                                    <th>Next Action Date</th>
+                                    <th>Actions</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of recommendPlan |
+                                    paginate: {
+                                    itemsPerPage: 5,
+                                    currentPage: pageIndex,
+                                    totalItems:allCount,id:'p4' }
+                                    ;index as i
+                                    ">
+                                    <td>{{i+ind}}</td>
+
+                                    <td>{{ item.companyName}}</td>
+
+                                    <td>{{ item.actStatus | titlecase}}</td>
+                                    <td>{{ item.nextActDate| date: 'dd-MM-yyyy'
+                                        }}</td>
+                                    <td>
+
+
+                                        <button id="but"
+                                            class="btn btn-outline-info btn-shadow btn-pad text-right d-inline-flex align-items-center"
+                                            (click)="customerView(item.customerID)"
+                                            target="_blank"><mat-icon>remove_red_eye</mat-icon></button>
+                                        <button type="submit" class="btn btn-warning add"
+                                            (click)="selectRow(item)"
+                                            [disabled]="item.isCopied">{{
+                                            getButtonLabel(item) }}</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <pagination-controls id="p4"
+                        (pageChange)="pageChange($event)"></pagination-controls>
+                </div>
+                <ng-template #noPlan>
+                    <div class="card ">
+                        <div class="card-body " style="text-align:center; font-weight: 600;">
+                            <p>No Recommendations to show!</p>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- <div class="container mt-2 " *ngIf="noDataFound" >
+
+    <div class="card">
+        <div class="card-header">Customer List</div>
+    </div>
+    <div class="card ">
+        <div class="card-body">
+            No data available.
+        </div>
+    </div>
+</div> -->
+    <div></div>
+
+
+    <!--  -->
+
+    <div class="container mt-2 ">
+        <div class="card">
+            <div class="card-header">Weekly Plan</div>
+        </div>
+        <div class="card ">
+            <form [formGroup]="weekDate">
+                <div class="row-8 plan-sheet">
+
+
+                    <div class="col-md-2">
+
+                        <input type="text" class="form-control" readonly
+                            placeholder="From"
+                            formControlName="currentWeekStart" >
+                    </div>
+                    <div class="col-md-1"><label>TO</label>
+                    </div>
+                    <div class="col-md-2"><input class="form-control"
+                            type="text"
+                            readonly placeholder="To"
+                            formControlName="currentWeekEnd">
+
+                    </div>
+
+
+
+                </div>
+                <div class="card-body copied">
+                    <table  class="table selected_rows">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Company Name</th>
+
+                                <th>Status</th>
+
+
+                                <th>Next Action Date</th>
+                                <th  style="text-align: left;">Notes</th>
+                                <th>Actions</th>
+
+                            </tr>
+                        </thead>
+                        <tbody  *ngIf="selectedRows.length>0;else addRecord">
+                            <tr *ngFor="let item of selectedRows ;let i=
+                                index;">
+                                <td>{{i+1}}</td>
+
+                                <td>{{ item.companyName }}</td>
+
+                                <td>{{item.actStatus===null?'N/A': item.actStatus | titlecase}}</td>
+
+
+                                <td  >{{ item.nextActDate===null?'N/A':item.nextActDate| date: 'dd-MM-yyyy' }}</td>
+                                <td  class="wrap" style="text-align: left;    width: min-content;
+                                    white-space: normal; ">{{item.actNotes===null?'N/A':item.actNotes===''?'N/A': item.actNotes}}</td>
+                                <td>
+
+
+
+                                    <button id="but"
+                                        class="btn btn-outline-danger btn-shadow btn-pad text-right d-inline-flex align-items-center"
+                                        (click)="removeRow(item)"><mat-icon>delete_outline</mat-icon></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <ng-template #addRecord>
+
+
+
+                            <td colspan="6" style="padding-top: 15px;
+                                font-weight: 800;">Add Records to Plan</td>
+                        </ng-template>
+                        <!-- <tbody >
+                       
+                           <p class="text-center" *ngIf="selectedRows.length==0"> No records found</p>
+                       
+                    </tbody> -->
+                    </table>
+                </div>
+
+
+                <div class="card-footer text-center">
+
+                    <button [disabled]="selectedRows?.length===0" class="btn btn-success" type="submit"
+                        (click)="conformSave()">Save</button>
+
+                </div>
+            </form>
+
+
+
+        </div>
+    </div>
+  

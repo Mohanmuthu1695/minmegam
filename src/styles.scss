@@ -1,0 +1,141 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "~@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$salesApp-primary: mat.define-palette(mat.$indigo-palette);
+$salesApp-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$salesApp-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$salesApp-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $salesApp-primary,
+      accent: $salesApp-accent,
+      warn: $salesApp-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($salesApp-theme);
+
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+// @media (min-width: 320px) {
+//   /* smartphones, iPhone, portrait 480x320 phones */
+// }
+// @media (min-width: 481px) {
+//   /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+// }
+// @media (min-width: 641px) {
+//   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+// }
+// @media (min-width: 961px) {
+//   /* tablet, landscape iPad, lo-res laptops ands desktops */
+// }
+// @media (min-width: 1025px) {
+//   /* big landscape tablets, laptops, and desktops */
+// }
+// @media (min-width: 1281px) {
+//   /* hi-res laptops and desktops */
+// }
+// @media (min-width: 600px) {
+//   .container {
+//     flex-wrap: nowrap;
+//   }
+//   div {
+//     flex-basis: 33%;
+//   }
+// }
+// // @media only screen and (max-width: 600px) {
+// // }
+// // @media only screen and (max-width: 560px) {
+// //   /* For tablets: */
+// //   .card-header {
+// //     background: red;
+// //   }
+// //   .col-md-1 {
+// //     width: 17%;
+// //   }
+// //   .col-md-2 {
+// //     width: 23%;
+// //   }
+// //   .col-md-3 {
+// //     width: 28%;
+// //   }
+// //   .col-md-4 {
+// //     width: 32%;
+// //   }
+// //   .col-md-5 {
+// //     width: 40%;
+// //   }
+// //   .col-md-6 {
+// //     width: 6rem;
+// //   }
+// //   .col-md-7 {
+// //     width: 30.33%;
+// //   }
+// //   .col-md-8 {
+// //     width: 50.66%;
+// //   }
+// //   .col-md-9 {
+// //     width: 5rem;
+// //   }
+// //   .col-md-10 {
+// //     width: 83.33%;
+// //   }
+// //   .col-md-11 {
+// //     width: 91.66%;
+// //   }
+// //   .col-md-12 {
+// //     width: 100%;
+// //   }
+// // }
+.swal2-popup {
+  margin: auto;
+  border: 10px solid #2c9ee2 !important;
+}
+
+.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(
+    .swal2-top-left
+  ):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(
+    .swal2-center-left
+  ):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(
+    .swal2-bottom-end
+  ):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)
+  > .swal2-modal {
+  margin: auto;
+  border: 10px solid #2c9ee2 !important;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "~ngx-bootstrap/datepicker/bs-datepicker";

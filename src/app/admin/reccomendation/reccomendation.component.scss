@@ -1,0 +1,50 @@
+.card-header {
+    background: #2c9ee2;
+    color: #fff;
+  }
+  .j{
+    overflow: auto;}
+  @media only screen and (min-width: 600px) and (max-width: 763px) {
+    thead, tbody, tfoot, tr, td, th {
+      font-size: 12px;
+      flex-wrap: nowrap;
+    }
+    th{
+      flex-wrap: nowrap;
+    }
+    td:last-child{
+      width: 10px;
+    }
+    .table  {
+      border-bottom-color: currentColor;
+      font-size: 13px;
+   }
+   thead, tbody, tfoot, tr, td, th {
+      font-size: 12px;
+      padding: 11px;
+   }
+   th{
+      font-size: 12px;
+   }
+
+.card-body .table{
+width: 100%;
+}
+  }
+  @media (min-width: 300px) and (max-width: 500px){
+    td, th {
+     
+       font-size: 12px;
+       white-space: nowrap;
+   }
+    
+ }
+ td{
+  padding: 4px;
+}
+
+td, th {
+    
+  font-size: 14px;
+  white-space: nowrap;
+}

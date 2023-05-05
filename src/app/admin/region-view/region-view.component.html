@@ -1,0 +1,67 @@
+<div class="container-fluid mt-2">
+    <div class="card ">
+        <div class="card-header">
+            Region
+        </div>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="text" placeholder="State" class="form-control " readonly
+                        ngModel="{{respData[0].regionState}}">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" placeholder="Region" readonly class="form-control "
+                        ngModel="{{respData[0].regionName}}">
+                </div>
+                <!-- <div class="col-md-3">
+                    <input type="text" placeholder="Description" class="form-control ">
+
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="card mt-2">
+        <div class="card-header">
+            Territory List
+        </div>
+
+        <div class=" card card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>S.NO</th>
+                        <th>Territory</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of territoryData;let j=index">
+                        <td>{{j+1}}</td>
+                        <td>{{i.territoryName}}</td>
+
+                    </tr>
+                    <!-- <tr>
+                        <td>2</td>
+                        <td> Chennai-East</td>
+                        <td><button class="btn btn-danger">del</button></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td> Chennai-South</td>
+                        <td><button class="btn btn-danger">del</button></td>
+                    </tr> -->
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="card-footer text-center">
+        <button class="btn btn-secondary" (click)="onBack()">Back</button>
+    </div>
+
+
+
+
+
+</div>

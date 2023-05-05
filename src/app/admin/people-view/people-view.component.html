@@ -1,0 +1,77 @@
+<div class="container-fluid mt-2">
+    <div class="card ">
+        <div class="card-header">
+            People
+        </div>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" placeholder="People" readonly ngModel="{{respData[0]?.name}}"
+                        class="form-control ">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Department</label>
+                    <input type="text" placeholder=" Department" readonly class="form-control "
+                        ngModel="{{respData[0]?.department}}">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">User name</label>
+                    <input type="text" placeholder="User name" readonly ngModel="{{respData[0]?.userName}}"
+                        class="form-control ">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Password</label>
+                    <input type="text" placeholder="Password" readonly ngModel="{{respData[0]?.userPassword}}"
+                        class="form-control ">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card mt-2">
+        <div class="card-header">
+            Territory
+        </div>
+
+        <div class=" card card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>S.NO</th>
+                        <th>Region</th>
+                        <th>Territory</th>
+                        <!-- <th>Territory List</th> -->
+                        <!-- <th>Action</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of regionData;let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{item.regionName}}</td>
+                        <td>{{item.territoryName}}</td>
+                    </tr>
+                    <!-- <tr>
+                        <td>2</td>
+                        <td> Chennai-East</td>
+                        <td><button class="btn btn-danger">del</button></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td> Chennai-South</td>
+                        <td><button class="btn btn-danger">del</button></td>
+                    </tr> -->
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+    <div class="card-footer text-center">
+        <button class="btn btn-secondary" (click)="onBack()">Back</button>
+    </div>
+
+
+
+</div>
